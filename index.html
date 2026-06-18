@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stories of Hope</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===================================================================
+     NAVIGATION — appears the same on every page.
+     To add a new page later: copy one <a> line and point it at your
+     new file, then paste the same line into the nav of all 4 pages.
+     =================================================================== -->
+<nav>
+  <a href="index.html" class="logo">
+    <svg class="logo-mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C9 7 5 10 5 15a7 7 0 0014 0c0-5-4-8-7-13z" fill="#4A7856"/>
+      <path d="M12 22V12" stroke="#D4A24C" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Stories of Hope
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="stories.html">Stories of Hope</a>
+    <a href="add-story.html">Add Your Story</a>
+  </div>
+</nav>
+
+<!-- ===================================================================
+     HERO — the big banner at the top.
+     EDIT: to use your own photo instead of the green gradient, replace
+     style="..." below with: style="background-image:url('images/hero.jpg');"
+     and put a file named hero.jpg inside the /images folder.
+     =================================================================== -->
+<div class="hero" style="">
+  <div class="hero-texture"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Science for Sustainable Societies</div>
+
+    <!-- EDIT THIS: homepage headline -->
+    <h1>Every place has a story.<br><em>Some end in hope.</em></h1>
+
+    <!-- EDIT THIS: homepage subtitle -->
+    <p>A living, student-built map of environmental problems that were actually solved, from coral reefs to crocodile rivers. Explore the map, or pin your own.</p>
+
+    <div class="hero-actions">
+      <a href="stories.html" class="btn-primary">Explore the map &nbsp;→</a>
+      <a href="add-story.html" class="btn-ghost">Add your story</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===================================================================
+     STATS — EDIT THE NUMBERS as your map grows. Or delete this whole
+     <div class="stats">...</div> block if you'd rather not show numbers yet.
+     =================================================================== -->
+<div class="stats">
+  <div class="stat"><div class="num">2</div><div class="label">Stories pinned so far</div></div>
+  <div class="stat"><div class="num">9</div><div class="label">Planetary boundaries tracked</div></div>
+  <div class="stat"><div class="num">2</div><div class="label">Countries represented</div></div>
+  <div class="stat"><div class="num">3</div><div class="label">Continents in active fieldwork</div></div>
+</div>
+
+<!-- ===================================================================
+     WHY THIS MAP EXISTS — text + photo side by side.
+     EDIT: replace the photo-block style below the same way as the hero,
+     using a different image filename, e.g. images/why-section.jpg
+     =================================================================== -->
+<div class="section section-split">
+  <div>
+    <div class="section-eyebrow">Why this map exists</div>
+    <h2>Environmental science needs more than warnings.</h2>
+    <!-- EDIT THIS PARAGRAPH -->
+    <p class="lead">Students spend years learning what's broken. This map asks a different question: where has it actually been fixed, and how? Every pin is a real place, a real problem, and a real solution, documented by the people studying it.</p>
+  </div>
+  <div class="photo-block" style="">
+    <div class="photo-caption">Replace with field photo, e.g. Schiermonnikoog dune restoration</div>
+  </div>
+</div>
+
+<!-- ===================================================================
+     PLANETARY BOUNDARIES STRIP — these names should always match the
+     ones used in the map itself. Don't rename without also updating
+     map.html's BOUNDARIES list.
+     =================================================================== -->
+<div class="boundaries-section">
+  <div class="section-eyebrow">Grounded in planetary boundaries</div>
+  <h2>Every story is tagged to what it actually addressed.</h2>
+  <p class="lead">From climate and biodiversity to novel entities like plastics, each solution is mapped against the boundary it helped pull back from the edge.</p>
+  <div class="boundary-pills">
+    <span class="pill">Climate change</span>
+    <span class="pill">Biodiversity</span>
+    <span class="pill">Land system change</span>
+    <span class="pill">Freshwater use</span>
+    <span class="pill">Biogeochemical flows</span>
+    <span class="pill">Ocean acidification</span>
+    <span class="pill">Atmospheric aerosols</span>
+    <span class="pill">Stratospheric ozone</span>
+    <span class="pill">Novel entities</span>
+  </div>
+</div>
+
+<!-- ===================================================================
+     HOW IT WORKS — three step cards
+     =================================================================== -->
+<div class="section">
+  <div class="section-eyebrow">How it works</div>
+  <h2 style="max-width:480px;">Three steps from field notes to a pin on the map.</h2>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0114 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+      <h3>Find your location</h3>
+      <p>Click anywhere on the world map where an environmental solution actually took place.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16M4 15h10M4 11h16M4 7h10"/></svg></div>
+      <h3>Tell the story</h3>
+      <p>A title, up to 100 words on the solution, and the planetary boundaries it addressed.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 15l-4-4-7 7"/></svg></div>
+      <h3>Add a photo</h3>
+      <p>One or two images bring the place and the people behind the solution to life.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================================================================
+     CALL TO ACTION
+     =================================================================== -->
+<div class="cta">
+  <h2>Seen a problem get solved? Put it on the map.</h2>
+  <a href="add-story.html" class="btn-dark">Add your story →</a>
+</div>
+
+<!-- EDIT THIS: footer line -->
+<footer>Stories of Hope — Science for Sustainable Societies, Institute of Environmental Sciences, Leiden University</footer>
+
+</body>
+</html>
