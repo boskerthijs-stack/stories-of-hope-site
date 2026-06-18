@@ -78,6 +78,7 @@ nav {
 .hero-texture {
   position: absolute; inset: 0;
   background-image:
+    linear-gradient(180deg, rgba(11,30,22,0.55) 0%, rgba(11,30,22,0.75) 100%),
     radial-gradient(circle at 18% 25%, rgba(212,162,76,0.18), transparent 38%),
     radial-gradient(circle at 82% 70%, rgba(74,120,86,0.35), transparent 45%);
 }
