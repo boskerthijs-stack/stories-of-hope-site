@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stories of Hope — The Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <svg class="logo-mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C9 7 5 10 5 15a7 7 0 0014 0c0-5-4-8-7-13z" fill="#4A7856"/>
+      <path d="M12 22V12" stroke="#D4A24C" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Stories of Hope
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="stories.html" class="active">Stories of Hope</a>
+    <a href="living-proof.html">Living Proof</a>
+  </div>
+</nav>
+
+<div class="page-header" style="display:flex; align-items:flex-end; justify-content:space-between; gap:40px; max-width:none; flex-wrap:wrap;">
+  <div>
+    <div class="section-eyebrow">The map</div>
+    <!-- EDIT THIS: stories page headline -->
+    <h1 style="max-width:540px;">Every pin is a place where something was fixed.</h1>
+  </div>
+  <div style="max-width:320px;">
+    <!-- EDIT THIS: instructions paragraph, top right -->
+    <p style="font-size:14px; color:var(--color-text-muted); line-height:1.6; text-align:right;">Click any pin to read the story. Click anywhere empty on the map to add your own.</p>
+  </div>
+</div>
+
+<!-- ===================================================================
+     CONTRIBUTE CHECKLIST — what used to be on the separate
+     "Add Your Story" page now sits here, right above the one shared
+     map. Add a fifth tip by copying one .check-item block.
+     =================================================================== -->
+<div class="checklist">
+  <div class="check-item">
+    <div class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0114 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+    <h4>A real, specific place</h4>
+    <p>Zoom in before placing your pin so it lands precisely.</p>
+  </div>
+  <div class="check-item">
+    <div class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16M4 15h10M4 11h16M4 7h10"/></svg></div>
+    <h4>100 words, max</h4>
+    <p>Short and specific beats long and vague. State the problem and the fix.</p>
+  </div>
+  <div class="check-item">
+    <div class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg></div>
+    <h4>Tag honestly</h4>
+    <p>Tick every planetary boundary genuinely addressed, multiple is fine.</p>
+  </div>
+  <div class="check-item">
+    <div class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 15l-4-4-7 7"/></svg></div>
+    <h4>A photo, if you have one</h4>
+    <p>One or two images make the story memorable. Optional, not required.</p>
+  </div>
+</div>
+
+<!-- ===================================================================
+     LIVE MAP EMBED — this iframe shows your real, live map. Browsing
+     and contributing both happen right here now.
+     If you ever move the map to a different URL, change the src=""
+     value below.
+     =================================================================== -->
+<div class="map-frame">
+  <div class="map-frame-bar">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <span class="url">boskerthijs-stack.github.io/solutions-hope-map</span>
+  </div>
+  <iframe class="map-embed" src="https://boskerthijs-stack.github.io/solutions-hope-map/" title="Stories of Hope interactive map" loading="lazy"></iframe>
+</div>
+
+<!-- ===================================================================
+     LEGEND — these colors must always match map.html's BOUNDARIES list.
+     If you ever change a color in map.html, update the matching
+     background:#... value below too.
+     =================================================================== -->
+<div class="legend-strip">
+  <div class="legend-pill"><span class="legend-dot" style="background:#E8724A;"></span>Climate change</div>
+  <div class="legend-pill"><span class="legend-dot" style="background:#4A9E6B;"></span>Biodiversity</div>
+  <div class="legend-pill"><span class="legend-dot" style="background:#C8A240;"></span>Land system change</div>
+  <div class="legend-pill"><span class="legend-dot" style="background:#4A7EC8;"></span>Freshwater</div>
+  <div class="legend-pill"><span class="legend-dot" style="background:#8B6BB5;"></span>Biogeochemical flows</div>
+  <div class="legend-pill"><span class="legend-dot" style="background:#3AABBF;"></span>Ocean acidification</div>
+  <div class="legend-pill"><span class="legend-dot" style="background:#7A8FA0;"></span>Atmospheric aerosols</div>
+  <div class="legend-pill"><span class="legend-dot" style="background:#5F9E8F;"></span>Stratospheric ozone</div>
+  <div class="legend-pill"><span class="legend-dot" style="background:#C25FA0;"></span>Novel entities</div>
+</div>
+
+<!-- ===================================================================
+     HELP BANNER — moved over from the old "Add Your Story" page.
+     EDIT the text or link target as needed, or delete this block
+     entirely if you don't need it.
+     =================================================================== -->
+<div class="help-banner">
+  <div>
+    <h3>Not sure your story fits?</h3>
+    <p>If you're unsure whether something counts as "solved," ask in the course forum before submitting, partial progress can still be a story worth telling.</p>
+  </div>
+  <a href="about.html" class="btn-ghost-light">Read the About page →</a>
+</div>
+
+<!-- ===================================================================
+     RECENTLY ADDED — these three cards are written by hand as
+     highlights. They do NOT update automatically from the live map.
+     Edit the text/photo for each card, or delete a whole .story-card
+     block if you only want to feature one or two.
+     =================================================================== -->
+<div class="recent-section">
+  <h2>Recently added</h2>
+  <p>A few of the latest stories pinned by students.</p>
+  <div class="story-grid">
+    <div class="story-card">
+      <div class="story-photo p1" style="">Reforestation photo</div>
+      <div class="story-body">
+        <div class="story-tags"><span class="story-tag climate">Climate change</span><span class="story-tag bio">Biodiversity</span></div>
+        <h3>Reforestation in Niger</h3>
+        <p>Farmer-managed natural regeneration brought tree cover back across millions of hectares of degraded farmland.</p>
+        <div class="story-loc">Niger, West Africa</div>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-photo p2" style="">Coastal photo</div>
+      <div class="story-body">
+        <div class="story-tags"><span class="story-tag land">Land system change</span></div>
+        <h3>Coastal restoration</h3>
+        <p>Dune stabilisation and native planting reversed decades of erosion along a stretch of Mediterranean coastline.</p>
+        <div class="story-loc">Sardinia, Italy</div>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-photo p3" style="">River photo</div>
+      <div class="story-body">
+        <div class="story-tags"><span class="story-tag fresh">Freshwater</span></div>
+        <h3>River clean-up, decades on</h3>
+        <p>Industrial discharge controls turned one of Europe's most polluted rivers back into a living ecosystem.</p>
+        <div class="story-loc">Rhine River, Germany</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>Stories of Hope — Science for Sustainable Societies, Institute of Environmental Sciences, Leiden University</footer>
+
+</body>
+</html>
