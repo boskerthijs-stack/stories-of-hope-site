@@ -6,8 +6,7 @@ This is the full website: 4 pages plus one shared stylesheet.
 
 - `index.html` — homepage
 - `about.html` — about page
-- `stories.html` — Stories of Hope page (shows the live map)
-- `add-story.html` — Add Your Story page (shows the live map, same as above)
+- `stories.html` — Stories of Hope page (browse the map AND add your own story, both happen here now)
 - `styles.css` — controls colors, fonts, and layout for ALL pages at once
 - `images/` — put your own photos in this folder
 
