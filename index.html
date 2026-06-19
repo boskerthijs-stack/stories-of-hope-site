@@ -8,6 +8,56 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+
+<!-- ============================================================
+     LIVE STATS — reads directly from the same Firebase database
+     used by the map, so these numbers update automatically as
+     students add stories. Uses the same config as map.html.
+     ============================================================ -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, getDocs }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey:            "AIzaSyDPp5og3IQyFYv8yPGrlY3TrP-O85nXdgE",
+  authDomain:        "solutions-map-dc2b6.firebaseapp.com",
+  projectId:         "solutions-map-dc2b6",
+  storageBucket:     "solutions-map-dc2b6.firebasestorage.app",
+  messagingSenderId: "268012323583",
+  appId:             "1:268012323583:web:03ef311fa82539ec4682ca"
+};
+
+const app = initializeApp(firebaseConfig);
+const db  = getFirestore(app);
+
+async function loadStats() {
+  try {
+    const snap = await getDocs(collection(db, "stories"));
+    const stories = snap.docs.map(d => d.data());
+
+    const storyCount = stories.length;
+
+    const boundariesUsed = new Set();
+    stories.forEach(s => (s.boundaries || []).forEach(b => boundariesUsed.add(b)));
+
+    const countriesUsed = new Set();
+    stories.forEach(s => { if (s.country) countriesUsed.add(s.country); });
+
+    document.getElementById("stat-stories").textContent = storyCount;
+    document.getElementById("stat-boundaries").textContent = boundariesUsed.size;
+    document.getElementById("stat-countries").textContent = countriesUsed.size;
+  } catch (e) {
+    // If the database can't be reached, leave the placeholder dashes
+    // rather than showing a broken or misleading number.
+    document.getElementById("stat-stories").textContent = "–";
+    document.getElementById("stat-boundaries").textContent = "–";
+    document.getElementById("stat-countries").textContent = "–";
+  }
+}
+
+window.addEventListener("DOMContentLoaded", loadStats);
+</script>
 </head>
 <body>
 
@@ -58,14 +108,16 @@
 </div>
 
 <!-- ===================================================================
-     STATS — EDIT THE NUMBERS as your map grows. Or delete this whole
-     <div class="stats">...</div> block if you'd rather not show numbers yet.
+     STATS — these are LIVE, pulled automatically from the same
+     Firebase database the map uses. You don't need to edit these
+     numbers by hand; they update on their own as students add stories.
+     Delete this whole <div class="stats">...</div> block if you'd
+     rather not show numbers at all.
      =================================================================== -->
-<div class="stats">
-  <div class="stat"><div class="num">2</div><div class="label">Stories pinned so far</div></div>
-  <div class="stat"><div class="num">9</div><div class="label">Planetary boundaries tracked</div></div>
-  <div class="stat"><div class="num">2</div><div class="label">Countries represented</div></div>
-  <div class="stat"><div class="num">3</div><div class="label">Continents in active fieldwork</div></div>
+<div class="stats" style="grid-template-columns: repeat(3, 1fr);">
+  <div class="stat"><div class="num" id="stat-stories">–</div><div class="label">Stories pinned so far</div></div>
+  <div class="stat"><div class="num" id="stat-boundaries">–</div><div class="label">Planetary boundaries addressed</div></div>
+  <div class="stat"><div class="num" id="stat-countries">–</div><div class="label">Countries represented</div></div>
 </div>
 
 <!-- ===================================================================
