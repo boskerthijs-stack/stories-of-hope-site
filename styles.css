@@ -172,7 +172,7 @@ footer { padding: 40px 56px; text-align: center; color: #8A8978; font-size: 13px
 .page-header h1 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 44px; line-height: 1.15; color: var(--color-forest); margin-bottom: 22px; }
 .page-header p.lead { font-size: 17px; line-height: 1.75; color: #4A4A42; }
 
-.quote-block { margin: 56px 56px; background: var(--color-forest); border-radius: 24px; padding: 56px 64px; display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+.quote-block { margin: 56px 56px; background: var(--color-forest); border-radius: 24px; padding: 56px 64px; display: flex; gap: 40px; align-items: center; flex-wrap: wrap; min-height: 420px; }
 .quote-block .photo {
   width: 200px; height: 200px; flex-shrink: 0; border-radius: 16px;
   background: linear-gradient(150deg, var(--color-moss), #2E5A3F); background-size: cover; background-position: center;
