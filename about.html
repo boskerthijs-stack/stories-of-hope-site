@@ -30,56 +30,75 @@
 <div class="page-header">
   <div class="section-eyebrow">About this project</div>
   <!-- EDIT THIS: about page headline -->
-  <h1>A map built by students, for the questions students actually ask.</h1>
+  <h1>A map built by students, with their <em style="font-style:italic; color:#D85A30;">stories of hope and change</em>.</h1>
   <!-- EDIT THIS: about page intro paragraph -->
-  <p class="lead">Stories of Hope grew out of fieldwork in the Philippines, East Africa, and the Caribbean, where it became clear that students needed a place to collect not just the problems they were studying, but the solutions they were finding too.</p>
+  <p class="lead">Stories of Hope grew out of teaching about environmental issues for over 15 years, where it became clear that students needed a place to collect not just the problems they were studying, but the solutions they were finding too. Stories of change and hope, without looking away from the issues we face.</p>
 </div>
 
 <!-- ===================================================================
-     QUOTE BLOCK — EDIT the quote text, citation, and the photo.
-     To use a real photo: change the style="" below to
-     style="background-image:url('images/about-quote.jpg');"
+     QUOTE BLOCK — EDIT the quote text, citation, or video.
+     The video plays muted/looped/autoplay, same technique as the
+     homepage hero. To swap it, change src="media/meadow.mp4" below.
+     To go back to a plain photo instead of video, delete the whole
+     <video>...</video> block and use a <div class="photo"
+     style="background-image:url('media/your-photo.jpg');"></div> instead.
      =================================================================== -->
 <div class="quote-block">
-  <div class="photo" style="">Field photo placeholder, e.g. river monitoring</div>
+  <video autoplay muted loop playsinline style="width:200px; height:200px; flex-shrink:0; border-radius:16px; object-fit:cover;">
+    <source src="media/meadow.mp4" type="video/mp4">
+  </video>
   <div>
-    <blockquote>"Most environmental education teaches collapse. We wanted a place that also teaches repair, in the students' own words, from the field, with evidence."</blockquote>
-    <cite>Programme team, Science for Sustainable Societies, Leiden University</cite>
+    <blockquote>"Most environmental education teaches about collapse of systems. We wanted a place that also teaches, repair and change, in the students' own words, with stories they care about."</blockquote>
+    <cite>Dr. Thijs Bosker, Associate Professor in Environmental Sciences at Leiden University</cite>
   </div>
 </div>
 
 <!-- ===================================================================
-     CREDITS — who built it. EDIT names/roles as needed.
+     CREDITS — who built it. Two side-by-side boxes, each with a
+     faded background photo. EDIT names, bios, or photos as needed.
+     Photos expected: media/thijs.jpg and media/achim.jpg
      =================================================================== -->
 <div class="section" style="padding-top:0;">
   <div class="section-eyebrow">Who built this</div>
-  <h2 style="max-width:560px;">Developed by Thijs Bosker and Achim Haeger.</h2>
+  <h2 style="max-width:560px;">Developed by Thijs Bosker and Achim Häger.</h2>
+  <p class="lead" style="max-width:640px; margin-bottom:36px;">The two have worked together for seven years, including developing a field course on one of the Dutch Wadden Islands.</p>
+
+  <div class="bio-grid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:24px;">
+
+    <div style="position:relative; overflow:hidden; border-radius:18px; border:1px solid var(--color-border); padding:28px; display:flex; gap:18px; align-items:flex-start;">
+      <div style="position:absolute; inset:0; background-image:url('media/fieldwork.jpg'); background-size:cover; background-position:center; opacity:0.1; z-index:0;"></div>
+      <img src="media/thijs.jpg" alt="Thijs Bosker" style="position:relative; z-index:1; width:84px; height:84px; border-radius:50%; object-fit:cover; flex-shrink:0;" />
+      <div style="position:relative; z-index:1;">
+        <h3 style="font-family:'Fraunces',serif; font-size:17px; font-weight:500; color:var(--color-forest); margin-bottom:4px;">Thijs Bosker</h3>
+        <p style="font-size:12.5px; color:var(--color-text-muted); margin-bottom:10px;">Associate Professor, Institute of Environmental Sciences, Leiden University</p>
+        <!-- EDIT THIS PARAGRAPH: ~50-100 words -->
+        <p style="font-size:13.5px; line-height:1.6; color:#3A3A32;">Thijs is Associate Professor in Environmental Science and Programme Director of the BSc Science for Sustainable Societies. His research centres on plastic pollution, ecotoxicology, and citizen-science-based monitoring, with fieldwork spanning East Africa, the Caribbean, and the Philippines. He built Stories of Hope to give students a place to document not just what's broken, but what's been fixed.</p>
+      </div>
+    </div>
+
+    <div style="position:relative; overflow:hidden; border-radius:18px; border:1px solid var(--color-border); padding:28px; display:flex; gap:18px; align-items:flex-start;">
+      <div style="position:absolute; inset:0; background-image:url('media/fieldwork.jpg'); background-size:cover; background-position:center; opacity:0.1; z-index:0;"></div>
+      <img src="media/achim.jpg" alt="Achim Häger" style="position:relative; z-index:1; width:84px; height:84px; border-radius:50%; object-fit:cover; flex-shrink:0;" />
+      <div style="position:relative; z-index:1;">
+        <h3 style="font-family:'Fraunces',serif; font-size:17px; font-weight:500; color:var(--color-forest); margin-bottom:4px;">Achim Häger</h3>
+        <p style="font-size:12.5px; color:var(--color-text-muted); margin-bottom:10px;">Assistant Professor, Leiden University College</p>
+        <!-- EDIT THIS PARAGRAPH: ~50-100 words -->
+        <p style="font-size:13.5px; line-height:1.6; color:#3A3A32;">Achim grew up in the forests of Germany, the grandson of a forest ranger, and later worked in the jungles and coffee plantations of Costa Rica. He now researches dune ecosystems in The Hague with his students and the water company Dunea, studying how dunes store carbon and purify drinking water. "I feel a deep connection with nature," he says, "and I care about researching it as much as I care about protecting it."</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================================================================
+     FUNDING — now styled as a gold box, matching the homepage CTA.
+     EDIT the funder name/description as needed.
+     =================================================================== -->
+<div class="cta" style="flex-direction:column; align-items:flex-start; gap:10px;">
+  <div style="color:#1A2412; font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; opacity:0.75;">Funding</div>
+  <h2 style="margin-bottom:0;">Made possible by the Leiden University Kiemfonds.</h2>
   <!-- EDIT THIS PARAGRAPH -->
-  <p class="lead" style="max-width:640px;">Stories of Hope is developed by Thijs Bosker, Associate Professor in Environmental Science and Programme Director of the BSc Science for Sustainable Societies at Leiden University's Institute of Environmental Sciences, together with Achim Haeger.</p>
-</div>
-
-<!-- ===================================================================
-     FUNDING — EDIT the funder name/description as needed.
-     =================================================================== -->
-<div class="principles" style="display:flex; align-items:center; gap:40px; flex-wrap:wrap; padding:44px 56px;">
-  <div style="flex:1; min-width:260px;">
-    <div class="section-eyebrow" style="margin-bottom:8px;">Funding</div>
-    <h3 style="font-family:'Fraunces',serif; font-weight:500; font-size:22px; color:var(--color-forest); margin-bottom:10px;">Made possible by the Leiden University Keimfonds.</h3>
-    <!-- EDIT THIS PARAGRAPH -->
-    <p style="font-size:14px; line-height:1.65; color:#4A4A42; max-width:520px;">This project was supported by Leiden University's Keimfonds, which funds early-stage, innovative ideas in education and research across the university.</p>
-  </div>
-</div>
-
-<!-- ===================================================================
-     LINK THROUGH TO LIVING PROOF — a quiet pointer rather than a
-     repeat of the teaser already shown on the homepage.
-     =================================================================== -->
-<div class="help-banner">
-  <div>
-    <h3>Curious what this looks like in practice?</h3>
-    <p>Three field sites, followed over years, each with its own story of repair: the Polderlab, agroforestry in Costa Rica, and crocodile conservation in the Philippines.</p>
-  </div>
-  <a href="living-proof.html" class="btn-ghost-light">See Living Proof →</a>
+  <p style="font-size:15px; line-height:1.65; color:#3A2E12; max-width:560px;">This project was supported by Leiden University's Kiemfonds, which funds early-stage, innovative ideas in education and research across the university.</p>
 </div>
 
 <footer>Stories of Hope — Science for Sustainable Societies, Institute of Environmental Sciences, Leiden University</footer>
