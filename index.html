@@ -100,7 +100,7 @@ window.addEventListener("DOMContentLoaded", loadStats);
      style="background-image:url('20240918_080538.jpg');" back on the
      <div class="hero"> tag below.
      =================================================================== -->
-<div class="hero" style="background-image:url('20240918_080538.jpg');">
+<div class="hero" style="">
   <video class="hero-video" autoplay muted loop playsinline poster="20240918_080538.jpg">
     <source src="rainforest.mp4" type="video/mp4">
   </video>
@@ -130,9 +130,9 @@ window.addEventListener("DOMContentLoaded", loadStats);
      rather not show numbers at all.
      =================================================================== -->
 <div class="stats" style="grid-template-columns: repeat(3, 1fr);">
-  <div class="stat"><div class="num" id="stat-stories">–</div><div class="label">Stories pinned so far</div></div>
-  <div class="stat"><div class="num" id="stat-boundaries">–</div><div class="label">Planetary boundaries addressed</div></div>
-  <div class="stat"><div class="num" id="stat-countries">–</div><div class="label">Countries represented</div></div>
+  <div class="stat"><div class="num" id="stat-stories" style="color:#D85A30;">–</div><div class="label">Stories pinned so far</div></div>
+  <div class="stat"><div class="num" id="stat-boundaries" style="color:#185FA5;">–</div><div class="label">Planetary boundaries addressed</div></div>
+  <div class="stat"><div class="num" id="stat-countries" style="color:#3B6D11;">–</div><div class="label">Countries represented</div></div>
 </div>
 
 <!-- ===================================================================
@@ -142,34 +142,49 @@ window.addEventListener("DOMContentLoaded", loadStats);
      =================================================================== -->
 <div class="section section-split">
   <div>
-    <div class="section-eyebrow">Why this map exists</div>
-    <h2>Environmental science needs more than warnings.</h2>
+    <div class="section-eyebrow" style="color:#993C1D; font-weight:800; font-size:14px;">Why this map exists</div>
+    <h2>Environmental science needs <em style="font-style:italic; color:#185FA5;">more than warnings</em>.</h2>
     <!-- EDIT THIS PARAGRAPH -->
-    <p class="lead">Students spend years learning what's broken. This map asks a different question: where has it actually been fixed, and how? Every pin is a real place, a real problem, and a real solution, documented by the people studying it.</p>
+    <p class="lead">Students spend years learning why our environment is broken, and what goes wrong. This map asks a different question: where has it actually been fixed, and how? Every pin is a real place, a real problem, and a real solution, documented by our students.</p>
   </div>
   <div class="photo-block" style="background-image:url('20240918_080538.jpg');">
   </div>
 </div>
 
 <!-- ===================================================================
-     PLANETARY BOUNDARIES STRIP — these names should always match the
-     ones used in the map itself. Don't rename without also updating
-     map.html's BOUNDARIES list.
+     ADD YOUR STORY — moved here, directly under "Why this map exists"
      =================================================================== -->
-<div class="boundaries-section">
-  <div class="section-eyebrow">Grounded in planetary boundaries</div>
-  <h2>Every story is tagged to what it actually addressed.</h2>
-  <p class="lead">From climate and biodiversity to novel entities like plastics, each solution is mapped against the boundary it helped pull back from the edge.</p>
-  <div class="boundary-pills">
-    <span class="pill">Climate change</span>
-    <span class="pill">Biodiversity</span>
-    <span class="pill">Land system change</span>
-    <span class="pill">Freshwater use</span>
-    <span class="pill">Biogeochemical flows</span>
-    <span class="pill">Ocean acidification</span>
-    <span class="pill">Atmospheric aerosols</span>
-    <span class="pill">Stratospheric ozone</span>
-    <span class="pill">Novel entities</span>
+<div class="cta">
+  <h2>Seen a problem get solved? Put it on the map.</h2>
+  <a href="stories.html" class="btn-dark">Add your story →</a>
+</div>
+
+<!-- ===================================================================
+     HOW IT WORKS — folded into the gold call-to-action box.
+     EDIT the three step titles/descriptions below. The icons are
+     inline SVG; swap the path data if you want different icons.
+     =================================================================== -->
+<div class="cta" style="flex-direction:column; align-items:stretch; gap:32px;">
+  <div>
+    <div style="color:#1A2412; font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px; opacity:0.75;">How it works</div>
+    <h2 style="max-width:560px;">Three steps from field notes to a pin on the map.</h2>
+  </div>
+  <div class="steps-grid" style="margin-top:0;">
+    <div class="step-card" style="background:rgba(255,255,255,0.55); border-color:rgba(26,36,18,0.12);">
+      <div class="step-mark" style="background:rgba(26,36,18,0.1); color:#1A2412;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0114 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+      <h3 style="color:#1A2412;">Find your location</h3>
+      <p style="color:#3A2E12;">Click anywhere on the world map where an environmental solution actually took place.</p>
+    </div>
+    <div class="step-card" style="background:rgba(255,255,255,0.55); border-color:rgba(26,36,18,0.12);">
+      <div class="step-mark" style="background:rgba(26,36,18,0.1); color:#1A2412;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16M4 15h10M4 11h16M4 7h10"/></svg></div>
+      <h3 style="color:#1A2412;">Tell the story</h3>
+      <p style="color:#3A2E12;">A title, up to 100 words on the solution, and the planetary boundaries it addressed.</p>
+    </div>
+    <div class="step-card" style="background:rgba(255,255,255,0.55); border-color:rgba(26,36,18,0.12);">
+      <div class="step-mark" style="background:rgba(26,36,18,0.1); color:#1A2412;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 15l-4-4-7 7"/></svg></div>
+      <h3 style="color:#1A2412;">Add a photo</h3>
+      <p style="color:#3A2E12;">One or two images bring the place and the people behind the solution to life.</p>
+    </div>
   </div>
 </div>
 
@@ -177,49 +192,63 @@ window.addEventListener("DOMContentLoaded", loadStats);
      LIVING PROOF TEASER — one wide tile pointing to the in-depth
      three-story page. EDIT the background image, text, or link target
      below. To remove this section entirely, delete from here down to
-     the closing </a> tag.
+     the closing </a> tag. You'll add a background video here later,
+     same treatment as the hero video.
      =================================================================== -->
 <a href="living-proof.html" style="text-decoration:none; display:block; margin:64px 32px; border-radius:28px; overflow:hidden; position:relative; min-height:280px; display:flex; align-items:center; background:linear-gradient(120deg, #1F3A28 0%, #4A7856 55%, #AE8F4F 100%); background-size:cover; background-position:center;">
   <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(11,30,22,0.82) 0%, rgba(11,30,22,0.35) 100%);"></div>
   <div style="position:relative; z-index:2; padding:48px 56px; max-width:600px;">
     <div style="color:var(--color-gold); font-size:13px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:14px;">Three places, followed for years</div>
-    <h2 style="font-family:'Fraunces',serif; font-weight:500; font-size:30px; color:var(--color-cream); line-height:1.25; margin-bottom:14px;">See what hope looks like up close.</h2>
-    <p style="font-size:15px; color:#D8E2D5; line-height:1.65; margin-bottom:22px;">The Polderlab, agroforestry in Costa Rica, and crocodile conservation in the Philippines: longer stories, with photos, footage, and the people doing the work.</p>
+    <h2 style="font-family:'Fraunces',serif; font-weight:500; font-size:30px; color:var(--color-cream); line-height:1.25; margin-bottom:14px;">Three places, three different stories of change.</h2>
+    <p style="font-size:15px; color:#D8E2D5; line-height:1.65; margin-bottom:22px;">The Polderlab, coffee agroforestry in Costa Rica, and crocodile conservation in the Philippines: longer stories, with photos, footage, and the people doing the work.</p>
     <span style="display:inline-flex; align-items:center; gap:8px; color:var(--color-cream); font-weight:600; font-size:14px;">Explore Living Proof →</span>
   </div>
 </a>
 
 <!-- ===================================================================
-     HOW IT WORKS — three step cards
+     PLANETARY BOUNDARIES STRIP — moved to the end of the page, just
+     before the footer. Expanded with more explanation, plus a subtle
+     full-width background illustration of the 9 boundaries.
+     These names should always match the ones used in the map itself.
+     Don't rename without also updating map.html's BOUNDARIES list.
      =================================================================== -->
-<div class="section">
-  <div class="section-eyebrow">How it works</div>
-  <h2 style="max-width:480px;">Three steps from field notes to a pin on the map.</h2>
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0114 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-      <h3>Find your location</h3>
-      <p>Click anywhere on the world map where an environmental solution actually took place.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16M4 15h10M4 11h16M4 7h10"/></svg></div>
-      <h3>Tell the story</h3>
-      <p>A title, up to 100 words on the solution, and the planetary boundaries it addressed.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 15l-4-4-7 7"/></svg></div>
-      <h3>Add a photo</h3>
-      <p>One or two images bring the place and the people behind the solution to life.</p>
+<div class="boundaries-section" style="position:relative; overflow:hidden;">
+  <div style="position:absolute; inset:0; opacity:0.08; pointer-events:none;">
+    <svg width="100%" height="100%" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="600" cy="250" r="220" fill="none" stroke="#FAF6EE" stroke-width="1.5"/>
+      <circle cx="600" cy="250" r="170" fill="none" stroke="#FAF6EE" stroke-width="1.5"/>
+      <circle cx="600" cy="250" r="120" fill="none" stroke="#FAF6EE" stroke-width="1.5"/>
+      <circle cx="600" cy="250" r="70" fill="none" stroke="#FAF6EE" stroke-width="1.5"/>
+      <g fill="#FAF6EE">
+        <circle cx="600" cy="30" r="7"/>
+        <circle cx="820" cy="90" r="7"/>
+        <circle cx="970" cy="250" r="7"/>
+        <circle cx="820" cy="410" r="7"/>
+        <circle cx="600" cy="470" r="7"/>
+        <circle cx="380" cy="410" r="7"/>
+        <circle cx="230" cy="250" r="7"/>
+        <circle cx="380" cy="90" r="7"/>
+        <circle cx="600" cy="250" r="10"/>
+      </g>
+    </svg>
+  </div>
+  <div style="position:relative; z-index:1;">
+    <div class="section-eyebrow">Grounded in planetary boundaries</div>
+    <h2>Every story is tagged to what it actually addressed.</h2>
+    <!-- EDIT THIS PARAGRAPH -->
+    <p class="lead">Planetary boundaries mark the limits within which humanity can keep operating safely, covering everything from the climate system to the flow of nitrogen and phosphorus through soil and water. Cross too many of them, and the systems that hold up a livable planet start to break down in ways that are hard to reverse. That's why every story on this map is tagged against the specific boundary it actually helped pull back from the edge, so it's clear not just that something was fixed, but which planetary limit it relieved.</p>
+    <div class="boundary-pills">
+      <span class="pill">Climate change</span>
+      <span class="pill">Biodiversity</span>
+      <span class="pill">Land system change</span>
+      <span class="pill">Freshwater use</span>
+      <span class="pill">Biogeochemical flows</span>
+      <span class="pill">Ocean acidification</span>
+      <span class="pill">Atmospheric aerosols</span>
+      <span class="pill">Stratospheric ozone</span>
+      <span class="pill">Novel entities</span>
     </div>
   </div>
-</div>
-
-<!-- ===================================================================
-     CALL TO ACTION
-     =================================================================== -->
-<div class="cta">
-  <h2>Seen a problem get solved? Put it on the map.</h2>
-  <a href="stories.html" class="btn-dark">Add your story →</a>
 </div>
 
 <!-- EDIT THIS: footer line -->
