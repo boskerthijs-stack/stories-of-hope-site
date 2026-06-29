@@ -178,7 +178,7 @@ footer { padding: 40px 56px; text-align: center; color: #8A8978; font-size: 13px
   background: linear-gradient(150deg, var(--color-moss), #2E5A3F); background-size: cover; background-position: center;
   display: flex; align-items: center; justify-content: center; color: rgba(250,246,238,0.7); font-size: 12px; text-align: center; padding: 12px;
 }
-.quote-block blockquote { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 24px; line-height: 1.5; color: var(--color-cream); max-width: 760px; }
+.quote-block blockquote { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 24px; line-height: 1.5; color: var(--color-cream); max-width: 900px; }
 .quote-block cite { display: block; margin-top: 18px; font-family: 'Inter', sans-serif; font-style: normal; font-size: 13px; color: #B9C9B4; }
 
 .field-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
