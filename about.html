@@ -37,17 +37,21 @@
 
 <!-- ===================================================================
      QUOTE BLOCK — EDIT the quote text, citation, or video.
-     The video plays muted/looped/autoplay, same technique as the
-     homepage hero. To swap it, change src="media/meadow.mp4" below.
+     The video now fills the ENTIRE box as a full-bleed background
+     (position:absolute, inset:0), with a dark scrim behind the text
+     for readability, same technique as the homepage hero video.
+     To swap it, change src="media/meadow.mp4" below.
      To go back to a plain photo instead of video, delete the whole
-     <video>...</video> block and use a <div class="photo"
-     style="background-image:url('media/your-photo.jpg');"></div> instead.
+     <video>...</video> block and set background-image on the
+     quote-block style instead, e.g.
+     style="background-image:url('media/your-photo.jpg'); background-size:cover;"
      =================================================================== -->
-<div class="quote-block">
-  <video autoplay muted loop playsinline style="width:200px; height:200px; flex-shrink:0; border-radius:16px; object-fit:cover;">
+<div class="quote-block" style="position:relative; overflow:hidden;">
+  <video autoplay muted loop playsinline style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;">
     <source src="media/meadow.mp4" type="video/mp4">
   </video>
-  <div>
+  <div style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(11,30,22,0.82) 0%, rgba(11,30,22,0.55) 100%); z-index:1;"></div>
+  <div style="position:relative; z-index:2;">
     <blockquote>"Most environmental education teaches about collapse of systems. We wanted a place that also teaches, repair and change, in the students' own words, with stories they care about."</blockquote>
     <cite>Dr. Thijs Bosker, Associate Professor in Environmental Sciences at Leiden University</cite>
   </div>
