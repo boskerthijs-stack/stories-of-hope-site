@@ -41,13 +41,44 @@ and paragraph has a comment like this directly above it:
 Just change the text between the tags (`<h1>...</h1>`), save, and re-upload
 to GitHub the same way as before.
 
+## Where photos and videos live: the `media` folder
+
+To keep things simple going forward, put every photo AND video you
+upload into one folder called `media`. So instead of scattering files
+at the top level or in different folders, everything goes in one place:
+
+```
+stories-of-hope-site/
+├── index.html
+├── about.html
+├── stories.html
+├── living-proof.html
+├── polderlab.html
+├── agroforestry.html
+├── philippines.html
+├── styles.css
+├── README.md
+└── media/
+    ├── schiermonnikoog.jpg
+    ├── rainforest.mp4
+    ├── crocodile.mp4
+    └── (any future photos or videos)
+```
+
+All media is now consolidated in this one `media` folder: the
+Schiermonnikoog photo (`media/Schiermonnikoog.jpg`), the homepage hero
+video (`media/rainforest.mp4`), and the Living Proof teaser video
+(`media/crocodile.mp4`) all live there, and `index.html` points at
+them using that `media/` path. Any new photo or video you add from now
+on should go into this same folder.
+
 ## How to add your own photos
 
-1. Put your image file inside the `images` folder, e.g. `images/hero.jpg`
+1. Put your image file inside the `media` folder, e.g. `media/hero.jpg`
 2. Find the matching comment in the HTML (search for "EDIT" near a
    `style=""` attribute)
 3. Change the empty `style=""` to:
-   `style="background-image:url('images/hero.jpg');"`
+   `style="background-image:url('media/hero.jpg');"`
 4. Save and re-upload
 
 On the three Living Proof subpages, the same trick works for the photo
@@ -60,18 +91,31 @@ instead of a still photo, the same Schiermonnikoog photo is kept as a
 "poster" image that shows while the video loads, and as a fallback on
 phones that block autoplay video.
 
-1. Upload your video file into your repository, e.g. `rainforest.mp4`
-   at the top level (alongside `index.html`), or `images/rainforest.mp4`
-   if you prefer to keep it in the images folder
+1. Upload your video file into the `media` folder, e.g. `media/rainforest.mp4`
    (keep the file under roughly 20MB so it loads quickly; if it's
    larger, compress it first with a free tool like HandBrake, or an
    online tool like freeconvert.com/video-compressor)
 2. In `index.html`, find the `<video class="hero-video"` line near the top
-3. Change `src="rainforest.mp4"` to match your actual filename and location
+3. Change `src="media/rainforest.mp4"` to match your actual filename and location
 4. Save and re-upload
 
 To remove the video and go back to a still photo only, delete the
 whole `<video class="hero-video">...</video>` block.
+
+## How to add a video to the Living Proof teaser banner
+
+The "Three places, three different stories of change" banner on the
+homepage (just above the planetary boundaries section) can also show a
+looping background video, the same way the hero does.
+
+1. Upload your video into the `media` folder, e.g. `media/crocodile.mp4`
+2. In `index.html`, find the `<video` tag inside the Living Proof teaser
+   section (search for "LIVING PROOF TEASER")
+3. Change `src="media/crocodile.mp4"` to match your actual filename
+4. Save and re-upload
+
+To remove this video, delete the whole `<video>...</video>` block
+inside that teaser section.
 
 ## How to add a video to a Living Proof subpage
 
@@ -84,8 +128,8 @@ block and replace it with:
     <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
 
 **If you have your own video file:** upload the `.mp4` file into the
-`images` folder, then change the empty `src=""` inside the `<source>`
-tag to `src="images/your-video-file.mp4"`.
+`media` folder, then change the empty `src=""` inside the `<source>`
+tag to `src="media/your-video-file.mp4"`.
 
 ## How to change colors site-wide
 
