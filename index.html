@@ -89,20 +89,20 @@ window.addEventListener("DOMContentLoaded", loadStats);
      dark overlay (.hero-texture) the same way the photo was.
 
      EDIT: replace src="" below with your video filename, e.g.
-     src="rainforest.mp4" if it sits at the top level of the repo
-     (alongside index.html), or src="images/rainforest.mp4" if you
-     upload it into the images folder instead. The poster="" attribute shows your
+     src="media/rainforest.mp4" if it sits in the media folder
+     (the standard location for all photos and videos on this site).
+     The poster="" attribute shows your
      Schiermonnikoog photo while the video loads, and also displays
      instead of the video on phones/browsers that don't autoplay video.
 
      To go back to a plain photo with no video, delete the whole
      <video>...</video> block and put
-     style="background-image:url('20240918_080538.jpg');" back on the
+     style="background-image:url('media/Schiermonnikoog.jpg');" back on the
      <div class="hero"> tag below.
      =================================================================== -->
 <div class="hero" style="">
-  <video class="hero-video" autoplay muted loop playsinline poster="20240918_080538.jpg">
-    <source src="rainforest.mp4" type="video/mp4">
+  <video class="hero-video" autoplay muted loop playsinline poster="media/Schiermonnikoog.jpg">
+    <source src="media/rainforest.mp4" type="video/mp4">
   </video>
   <div class="hero-texture"></div>
   <div class="hero-content">
@@ -147,7 +147,7 @@ window.addEventListener("DOMContentLoaded", loadStats);
     <!-- EDIT THIS PARAGRAPH -->
     <p class="lead">Students spend years learning why our environment is broken, and what goes wrong. This map asks a different question: where has it actually been fixed, and how? Every pin is a real place, a real problem, and a real solution, documented by our students.</p>
   </div>
-  <div class="photo-block" style="background-image:url('20240918_080538.jpg');">
+  <div class="photo-block" style="background-image:url('media/Schiermonnikoog.jpg');">
   </div>
 </div>
 
@@ -157,16 +157,16 @@ window.addEventListener("DOMContentLoaded", loadStats);
      below. The icons are inline SVG; swap the path data for different
      icons if you like.
      =================================================================== -->
-<div class="cta" style="flex-direction:column; align-items:stretch; gap:40px;">
+<div class="cta" style="flex-direction:column; align-items:stretch; gap:28px;">
   <div style="display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;">
     <h2 style="margin-bottom:0;">Seen a problem get solved? Put it on the map.</h2>
     <a href="stories.html" class="btn-dark">Add your story →</a>
   </div>
 
-  <div style="border-top:1px solid rgba(26,36,18,0.15); padding-top:32px;">
-    <div style="color:#1A2412; font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px; opacity:0.75;">How it works</div>
-    <h2 style="max-width:560px;">Three steps from field notes to a pin on the map.</h2>
-    <div class="steps-grid" style="margin-top:24px;">
+  <div style="border-top:1px solid rgba(26,36,18,0.15); padding-top:24px;">
+    <div style="color:#1A2412; font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; opacity:0.75;">How it works</div>
+    <h2 style="max-width:560px; margin-bottom:0;">Three steps from field notes to a pin on the map.</h2>
+    <div class="steps-grid" style="margin-top:20px;">
       <div class="step-card" style="background:rgba(255,255,255,0.55); border-color:rgba(26,36,18,0.12);">
         <div class="step-mark" style="background:rgba(26,36,18,0.1); color:#1A2412;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0114 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
         <h3 style="color:#1A2412;">Find your location</h3>
@@ -194,8 +194,21 @@ window.addEventListener("DOMContentLoaded", loadStats);
      the closing </a> tag. You'll add a background video here later,
      same treatment as the hero video.
      =================================================================== -->
+<!-- ===================================================================
+     LIVING PROOF TEASER — one wide tile pointing to the in-depth
+     three-story page. Now has a looping background video (crocodile.mp4),
+     same technique as the hero video on this page.
+
+     EDIT: change src="media/crocodile.mp4" below to match wherever you
+     upload your video file. The poster="" shows a still frame while
+     the video loads. To remove the video and use a plain color
+     gradient instead, delete the whole <video>...</video> block.
+     =================================================================== -->
 <a href="living-proof.html" style="text-decoration:none; display:block; margin:64px 32px; border-radius:28px; overflow:hidden; position:relative; min-height:280px; display:flex; align-items:center; background:linear-gradient(120deg, #1F3A28 0%, #4A7856 55%, #AE8F4F 100%); background-size:cover; background-position:center;">
-  <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(11,30,22,0.82) 0%, rgba(11,30,22,0.35) 100%);"></div>
+  <video autoplay muted loop playsinline style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+    <source src="media/crocodile.mp4" type="video/mp4">
+  </video>
+  <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(11,30,22,0.82) 0%, rgba(11,30,22,0.35) 100%); z-index:1;"></div>
   <div style="position:relative; z-index:2; padding:48px 56px; max-width:600px;">
     <div style="color:var(--color-gold); font-size:13px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:14px;">Three places, followed for years</div>
     <h2 style="font-family:'Fraunces',serif; font-weight:500; font-size:30px; color:var(--color-cream); line-height:1.25; margin-bottom:14px;">Three places, three different stories of change.</h2>
