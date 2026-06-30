@@ -27,10 +27,24 @@
   </div>
 </nav>
 
-<div class="page-header" style="max-width:none;">
-  <div class="section-eyebrow">The map</div>
-  <!-- EDIT THIS: stories page headline -->
-  <h1 style="max-width:540px;">Every pin is a place where something was fixed.</h1>
+<!-- ===================================================================
+     HERO — page banner with a looping background video (vlinder.mp4),
+     same technique as the homepage hero. To swap the video, change
+     src="media/vlinder.mp4" below. To remove the video, delete the
+     whole <video>...</video> block.
+     =================================================================== -->
+<div class="hero" style="min-height:380px;">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="media/vlinder.mp4" type="video/mp4">
+  </video>
+  <div class="hero-texture"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">The map</div>
+    <!-- EDIT THIS: stories page headline -->
+    <h1>Every pin is a place where <em>something was fixed</em>.</h1>
+    <!-- EDIT THIS: stories page subtitle -->
+    <p>Browse the stories students have pinned from around the world, or add your own to the map below.</p>
+  </div>
 </div>
 
 <!-- ===================================================================
@@ -40,24 +54,24 @@
      The faded Whole_world.jpg sits behind the whole strip.
      =================================================================== -->
 <div style="position:relative; margin:48px 56px; border-radius:18px; overflow:hidden;">
-  <div style="position:absolute; inset:0; background-image:url('media/Whole_world.jpg'); background-size:cover; background-position:center; opacity:0.18; z-index:0;"></div>
+  <div style="position:absolute; inset:0; background-image:url('media/Whole_world.jpg'); background-size:cover; background-position:center; opacity:0.35; z-index:0;"></div>
   <div class="checklist" style="position:relative; z-index:1; margin:0; background:transparent;">
-    <div class="check-item" style="background:rgba(255,255,255,0.82);">
+    <div class="check-item" style="background:rgba(255,255,255,0.62);">
       <div class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0114 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
       <h4>A real, specific place</h4>
       <p>Zoom in before placing your pin so it lands precisely.</p>
     </div>
-    <div class="check-item" style="background:rgba(255,255,255,0.82);">
+    <div class="check-item" style="background:rgba(255,255,255,0.62);">
       <div class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16M4 15h10M4 11h16M4 7h10"/></svg></div>
       <h4>100 words, max</h4>
       <p>Short and specific beats long and vague. State the problem and the fix.</p>
     </div>
-    <div class="check-item" style="background:rgba(255,255,255,0.82);">
+    <div class="check-item" style="background:rgba(255,255,255,0.62);">
       <div class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg></div>
       <h4>Tag honestly</h4>
       <p>Tick every planetary boundary genuinely addressed, multiple is fine.</p>
     </div>
-    <div class="check-item" style="background:rgba(255,255,255,0.82);">
+    <div class="check-item" style="background:rgba(255,255,255,0.62);">
       <div class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 15l-4-4-7 7"/></svg></div>
       <h4>A photo, if you have one</h4>
       <p>One or two images make the story memorable. Optional, not required.</p>
@@ -97,15 +111,29 @@
 </div>
 
 <!-- ===================================================================
-     PLANETARY BOUNDARIES HELP — opens a pop-up explaining each of the
-     nine boundaries. Edit the explanations inside #pb-modal below.
+     PLANETARY BOUNDARIES HELP — styled like the homepage boundaries
+     section (dark green with faded concentric-rings background). The
+     button opens the pop-up (#pb-modal) explaining all nine.
      =================================================================== -->
-<div class="help-banner">
-  <div>
-    <h3>More info needed on planetary boundaries?</h3>
-    <p>The nine planetary boundaries define a safe operating space for humanity. Click to read a short explanation of each one.</p>
+<div class="boundaries-section" style="position:relative; overflow:hidden; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+  <div style="position:absolute; inset:0; opacity:0.08; pointer-events:none;">
+    <svg width="100%" height="100%" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="600" cy="150" r="140" fill="none" stroke="#FAF6EE" stroke-width="1.5"/>
+      <circle cx="600" cy="150" r="100" fill="none" stroke="#FAF6EE" stroke-width="1.5"/>
+      <circle cx="600" cy="150" r="60" fill="none" stroke="#FAF6EE" stroke-width="1.5"/>
+      <g fill="#FAF6EE">
+        <circle cx="600" cy="10" r="6"/><circle cx="740" cy="60" r="6"/><circle cx="740" cy="240" r="6"/>
+        <circle cx="600" cy="290" r="6"/><circle cx="460" cy="240" r="6"/><circle cx="460" cy="60" r="6"/>
+        <circle cx="790" cy="150" r="6"/><circle cx="410" cy="150" r="6"/><circle cx="600" cy="150" r="8"/>
+      </g>
+    </svg>
   </div>
-  <button onclick="document.getElementById('pb-modal').style.display='flex'" class="btn-ghost-light" style="cursor:pointer; border:none; font-family:inherit;">Click here →</button>
+  <div style="position:relative; z-index:1; max-width:560px;">
+    <div class="section-eyebrow">Grounded in planetary boundaries</div>
+    <h2 style="margin-bottom:8px;">More info on the nine planetary boundaries?</h2>
+    <p class="lead" style="margin-bottom:0;">They define a safe operating space for humanity. Read a short explanation of each one.</p>
+  </div>
+  <button onclick="document.getElementById('pb-modal').style.display='flex'" style="position:relative; z-index:1; cursor:pointer; font-family:inherit; white-space:nowrap; background:var(--color-gold); color:#1A2412; border:none; padding:16px 32px; border-radius:99px; font-weight:700; font-size:14px;">Explain the boundaries →</button>
 </div>
 
 <!-- ===================================================================
@@ -192,47 +220,78 @@ function escapeHtml(s) {
   return (s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
 
+// Build the inner HTML for a single story card.
+function storyCardHtml(s) {
+  const photo = s.photo1 || s.photo2;
+  const tags = (s.boundaries || []).map(id => {
+    const b = BOUNDARIES[id];
+    if (!b) return "";
+    return `<span class="story-tag" style="background:${b.color}22; color:${b.color}; border:1px solid ${b.color}44;">${b.label}</span>`;
+  }).join("");
+  const loc = s.country ? `<div class="story-loc">${escapeHtml(s.country)}</div>` : "";
+  return `
+    <div class="story-photo" style="background-image:url('${photo}'); background-size:cover; background-position:center;"></div>
+    <div class="story-body">
+      <div class="story-tags">${tags}</div>
+      <h3>${escapeHtml(s.title) || "Untitled"}</h3>
+      <p>${escapeHtml(s.description)}</p>
+      ${loc}
+    </div>`;
+}
+
+const SHOWN = 6;          // how many cards visible at once
+const ROTATE_MS = 4000;   // swap one card every 4 seconds
+
 async function loadRecent() {
   const grid  = document.getElementById("recent-grid");
   const empty = document.getElementById("recent-empty");
   try {
     const snap = await getDocs(collection(db, "stories"));
-    let stories = snap.docs.map(d => d.data());
+    let pool = snap.docs.map(d => d.data()).filter(s => s.photo1 || s.photo2);
 
-    // Keep only stories that actually have a photo.
-    stories = stories.filter(s => s.photo1 || s.photo2);
-
-    // Newest first, when a created timestamp is available.
-    stories.sort((a, b) => {
-      const ta = a.created && a.created.seconds ? a.created.seconds : 0;
-      const tb = b.created && b.created.seconds ? b.created.seconds : 0;
-      return tb - ta;
-    });
-
-    if (stories.length === 0) {
+    if (pool.length === 0) {
       empty.textContent = "No stories with photos yet. Be the first to add one on the map above.";
       return;
     }
 
-    grid.innerHTML = stories.map(s => {
-      const photo = s.photo1 || s.photo2;
-      const tags = (s.boundaries || []).map(id => {
-        const b = BOUNDARIES[id];
-        if (!b) return "";
-        return `<span class="story-tag" style="background:${b.color}22; color:${b.color}; border:1px solid ${b.color}44;">${b.label}</span>`;
-      }).join("");
-      const loc = s.country ? `<div class="story-loc">${escapeHtml(s.country)}</div>` : "";
-      return `
-        <div class="story-card">
-          <div class="story-photo" style="background-image:url('${photo}'); background-size:cover; background-position:center;"></div>
-          <div class="story-body">
-            <div class="story-tags">${tags}</div>
-            <h3>${escapeHtml(s.title) || "Untitled"}</h3>
-            <p>${escapeHtml(s.description)}</p>
-            ${loc}
-          </div>
-        </div>`;
-    }).join("");
+    // Shuffle so the first six are a random selection each visit.
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+
+    // Track which stories are currently on screen.
+    let visible = pool.slice(0, Math.min(SHOWN, pool.length));
+    let nextIndex = visible.length;   // pointer into the pool for the next story to bring in
+
+    // Initial render of the cards.
+    grid.innerHTML = "";
+    const cards = visible.map(s => {
+      const card = document.createElement("div");
+      card.className = "story-card";
+      card.style.transition = "opacity 0.6s ease";
+      card.innerHTML = storyCardHtml(s);
+      grid.appendChild(card);
+      return card;
+    });
+
+    // If there aren't more than SHOWN stories, nothing to rotate.
+    if (pool.length <= SHOWN) return;
+
+    // Every few seconds, fade one card out and swap in the next story.
+    let slot = 0;
+    setInterval(() => {
+      const card = cards[slot % cards.length];
+      const story = pool[nextIndex % pool.length];
+      nextIndex++;
+      card.style.opacity = "0";
+      setTimeout(() => {
+        card.innerHTML = storyCardHtml(story);
+        card.style.opacity = "1";
+      }, 600);
+      slot++;
+    }, ROTATE_MS);
+
   } catch (e) {
     empty.textContent = "Could not load stories right now. Please try again later.";
   }
