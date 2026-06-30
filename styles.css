@@ -129,6 +129,16 @@ nav {
 .stat { background: var(--color-cream); padding: 36px 28px; text-align: left; }
 .stat .num { font-family: 'Fraunces', serif; font-size: 52px; font-weight: 600; line-height: 1; color: var(--color-forest); }
 .stat .label { font-size: 14px; font-weight: 600; color: var(--color-text); margin-top: 8px; }
+/* Hover tooltip on the planetary-boundaries stat */
+.stat-tip { position: relative; cursor: default; }
+.stat-tip[data-tip]:hover::after {
+  content: attr(data-tip);
+  position: absolute; top: calc(100% + 10px); left: 0;
+  width: 280px; background: var(--color-forest); color: var(--color-cream);
+  font-size: 12.5px; line-height: 1.5; text-align: left; font-weight: 400;
+  padding: 14px 16px; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  z-index: 50; pointer-events: none;
+}
 
 /* ----------------------------------------------------------- SECTION */
 .section { padding: 88px 56px; max-width: 1180px; margin: 0 auto; }
@@ -151,7 +161,20 @@ nav {
 .boundaries-section h2 { color: var(--color-cream); }
 .boundaries-section p.lead { color: #C5D4C0; max-width: 560px; }
 .boundary-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
-.pill { border: 1px solid rgba(250,246,238,0.25); color: #E5EDE2; font-size: 13px; padding: 8px 18px; border-radius: 99px; }
+.pill { position: relative; border: 1px solid rgba(250,246,238,0.25); color: #E5EDE2; font-size: 13px; padding: 8px 18px; border-radius: 99px; cursor: default; }
+/* Hover tooltip explaining each planetary boundary */
+.pill[data-tip]:hover::after {
+  content: attr(data-tip);
+  position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translateX(-50%);
+  width: 260px; background: var(--color-cream); color: var(--color-text);
+  font-size: 12.5px; line-height: 1.5; text-align: left; font-weight: 400;
+  padding: 12px 14px; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  z-index: 50; pointer-events: none;
+}
+.pill[data-tip]:hover::before {
+  content: ""; position: absolute; bottom: calc(100% + 2px); left: 50%; transform: translateX(-50%);
+  border: 8px solid transparent; border-top-color: var(--color-cream); z-index: 50; pointer-events: none;
+}
 
 /* -------------------------------------------------------- STEP CARDS */
 .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
