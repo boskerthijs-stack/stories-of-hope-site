@@ -64,11 +64,16 @@
 </nav>
 
 <!-- ===================================================================
-     STORY HERO — EDIT: replace background with a real photo using
-     style="background-image:url('images/polderlab-hero.jpg');"
+     STORY HERO — has a looping background video (polderlab.mp4),
+     same technique as the homepage hero. The kept gradient/color is a
+     fallback if the video fails to load. To swap, change the
+     src="media/polderlab.mp4" below.
      =================================================================== -->
 <div class="story-hero">
-  <div class="story-hero-scrim"></div>
+  <video autoplay muted loop playsinline style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+    <source src="media/polderlab.mp4" type="video/mp4">
+  </video>
+  <div class="story-hero-scrim" style="z-index:1;"></div>
   <div class="story-hero-content">
     <div class="hero-eyebrow">The Netherlands</div>
     <!-- EDIT THIS: Polderlab headline -->
@@ -92,34 +97,33 @@
   <p>Across its different plots, the lab now runs several parallel experiments: a ridge-and-furrow system where raised beds stay just above a higher water table, growing low shrubs and edible marsh plants between them; restored wet grassland grazed at a higher water level; cultivation of wetland and waterside plants for food and water purification; "wet crops" like cranberry, sphagnum moss, and wild rice, which depend on clean, retained rainwater; and a peat market garden running as community-supported agriculture, where local residents buy directly from the growers. Early rice trials in 2024 and 2025 performed well enough that the rice grower is now scaling up to 0.6 hectares.</p>
 
   <!-- ===============================================================
-       VIDEO — paste a YouTube/Vimeo embed link here, or point src=""
-       at a self-hosted .mp4 file inside /images.
-       Example YouTube embed:
-       <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+       VIDEO — currently embedding a YouTube video. To swap it, change
+       the VIDEO_ID in the src below (the part after /embed/). To use a
+       self-hosted file instead, replace the <iframe> with a <video>.
        =============================================================== -->
   <div class="video-frame">
-    <video controls poster="">
-      <source src="" type="video/mp4">
-      Your browser does not support embedded video. Replace this block with a YouTube/Vimeo iframe if preferred.
-    </video>
+    <iframe src="https://www.youtube.com/embed/19E85dXuLzI?start=3" title="Polderlab video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 
   <h2>In the field</h2>
-  <!-- EDIT THESE THREE PHOTO BLOCKS: replace style="" the same way as
-       elsewhere on the site, e.g. style="background-image:url('images/polderlab-1.jpg');" -->
+  <!-- EDIT THESE THREE PHOTO BLOCKS: replace the filename in url() to
+       swap a photo, e.g. media/polderlab1.jpg -->
   <div class="photo-strip">
-    <div class="ph" style="">Photo 1</div>
-    <div class="ph" style="">Photo 2</div>
-    <div class="ph" style="">Photo 3</div>
+    <div class="ph" style="background-image:url('media/polderlab1.jpg');"></div>
+    <div class="ph" style="background-image:url('media/polderlab2.jpg');"></div>
+    <div class="ph" style="background-image:url('media/polderlab3.jpg');"></div>
   </div>
 
   <!-- ===============================================================
-       INTERVIEW QUOTE — EDIT the quote and citation. Duplicate this
-       whole block for a second interview if you have one.
+       INTERVIEW QUOTE — EDIT the quote, citation, or photo. Duplicate
+       this whole block for a second interview if you have one.
        =============================================================== -->
-  <div class="interview-quote">
-    <blockquote>"Quote from a student or researcher about what working at Polderlab actually taught them."</blockquote>
-    <cite>Name, role, year</cite>
+  <div class="interview-quote" style="display:flex; gap:20px; align-items:center;">
+    <img src="media/krijn.jpg" alt="Krijn Trimbos" style="width:72px; height:72px; border-radius:50%; object-fit:cover; flex-shrink:0;" />
+    <div>
+      <blockquote>"The Polderlab brings different parties together. That way we can devise solutions for food challenges and problems in agriculture together."</blockquote>
+      <cite>Dr. Krijn Trimbos, Leiden University</cite>
+    </div>
   </div>
 
   <h2>Why it matters</h2>
