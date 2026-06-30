@@ -43,6 +43,29 @@
   .interview-quote cite { display: block; margin-top: 14px; font-size: 13px; color: var(--color-text-muted); font-style: normal; }
 
   .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--color-moss); text-decoration: none; margin-bottom: 24px; }
+
+  /* Photo slideshow */
+  .slideshow { position: relative; margin: 32px 0; border-radius: 18px; overflow: hidden; border: 1px solid var(--color-border); box-shadow: 0 18px 40px rgba(15,61,46,0.08); }
+  .slide { display: none; width: 100%; height: 460px; background-size: cover; background-position: center; }
+  .slide.active { display: block; }
+  .slide-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 44px; height: 44px; border-radius: 50%; border: none; cursor: pointer;
+    background: rgba(11,30,22,0.55); color: #fff; font-size: 26px; line-height: 1;
+    display: flex; align-items: center; justify-content: center; transition: background 0.15s;
+  }
+  .slide-arrow:hover { background: rgba(11,30,22,0.8); }
+  .slide-arrow.prev { left: 16px; }
+  .slide-arrow.next { right: 16px; }
+  .slide-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(180deg, transparent, rgba(11,30,22,0.85));
+    color: var(--color-cream); padding: 40px 24px 18px; font-size: 14px; font-weight: 500;
+  }
+  .slide-dots { position: absolute; bottom: 14px; right: 20px; display: flex; gap: 7px; }
+  .slide-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.45); cursor: pointer; border: none; padding: 0; }
+  .slide-dot.active { background: #fff; }
+  @media (max-width: 700px) { .slide { height: 300px; } }
 </style>
 </head>
 <body>
@@ -106,12 +129,20 @@
   </div>
 
   <h2>In the field</h2>
-  <!-- EDIT THESE THREE PHOTO BLOCKS: replace the filename in url() to
-       swap a photo, e.g. media/polderlab1.jpg -->
-  <div class="photo-strip">
-    <div class="ph" style="background-image:url('media/polderlab1.jpg');"></div>
-    <div class="ph" style="background-image:url('media/polderlab2.jpg');"></div>
-    <div class="ph" style="background-image:url('media/polderlab3.jpg');"></div>
+  <!-- ===============================================================
+       PHOTO SLIDESHOW — one large photo at a time with arrows and a
+       caption. To swap a photo, change the data-src and caption text
+       in each .slide below. To add a fourth slide, copy one .slide
+       block. The arrows and dots work automatically.
+       =============================================================== -->
+  <div class="slideshow" id="polderlab-slideshow">
+    <div class="slide active" style="background-image:url('media/polderlab1.jpg');" data-caption="Experimental rice production"></div>
+    <div class="slide" style="background-image:url('media/polderlab2.jpg');" data-caption="Scientist conducting experiment"></div>
+    <div class="slide" style="background-image:url('media/polderlab3.jpg');" data-caption="Aerial view of the polder"></div>
+    <button class="slide-arrow prev" onclick="moveSlide('polderlab-slideshow', -1)" aria-label="Previous photo">‹</button>
+    <button class="slide-arrow next" onclick="moveSlide('polderlab-slideshow', 1)" aria-label="Next photo">›</button>
+    <div class="slide-caption" id="polderlab-slideshow-caption">Experimental rice production</div>
+    <div class="slide-dots" id="polderlab-slideshow-dots"></div>
   </div>
 
   <!-- ===============================================================
@@ -133,7 +164,59 @@
   <a href="living-proof.html" class="back-link" style="margin-top:24px;">← Back to Living Proof</a>
 </div>
 
+<!-- ===================================================================
+     WANT TO KNOW MORE — gold box linking out to polderlab.org
+     =================================================================== -->
+<div class="cta" style="margin-top:24px;">
+  <h2 style="margin-bottom:0;">Want to know more about the Polderlab?</h2>
+  <a href="https://polderlab.org/" target="_blank" rel="noopener" class="btn-dark">Visit polderlab.org →</a>
+</div>
+
 <footer>Stories of Hope — Science for Sustainable Societies, Institute of Environmental Sciences, Leiden University</footer>
 
+<script>
+// Simple slideshow: builds dots, handles arrows + caption updates.
+function initSlideshow(id) {
+  const root = document.getElementById(id);
+  if (!root) return;
+  const slides = root.querySelectorAll('.slide');
+  const captionEl = document.getElementById(id + '-caption');
+  const dotsEl = document.getElementById(id + '-dots');
+
+  slides.forEach((s, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => showSlide(id, i);
+    dotsEl.appendChild(dot);
+  });
+
+  root._index = 0;
+  updateCaption(id);
+}
+
+function showSlide(id, n) {
+  const root = document.getElementById(id);
+  const slides = root.querySelectorAll('.slide');
+  const dots = root.querySelectorAll('.slide-dot');
+  root._index = (n + slides.length) % slides.length;
+  slides.forEach((s, i) => s.classList.toggle('active', i === root._index));
+  dots.forEach((d, i) => d.classList.toggle('active', i === root._index));
+  updateCaption(id);
+}
+
+function moveSlide(id, dir) {
+  const root = document.getElementById(id);
+  showSlide(id, root._index + dir);
+}
+
+function updateCaption(id) {
+  const root = document.getElementById(id);
+  const slides = root.querySelectorAll('.slide');
+  const captionEl = document.getElementById(id + '-caption');
+  captionEl.textContent = slides[root._index].dataset.caption || '';
+}
+
+window.addEventListener('DOMContentLoaded', () => initSlideshow('polderlab-slideshow'));
+</script>
 </body>
 </html>
