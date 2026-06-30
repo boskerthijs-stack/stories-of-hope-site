@@ -42,6 +42,29 @@
   .interview-quote cite { display: block; margin-top: 14px; font-size: 13px; color: var(--color-text-muted); font-style: normal; }
 
   .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--color-moss); text-decoration: none; margin-bottom: 24px; }
+
+  /* Photo slideshow */
+  .slideshow { position: relative; margin: 32px 0; border-radius: 18px; overflow: hidden; border: 1px solid var(--color-border); box-shadow: 0 18px 40px rgba(15,61,46,0.08); }
+  .slide { display: none; width: 100%; height: 460px; background-size: cover; background-position: center; }
+  .slide.active { display: block; }
+  .slide-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 44px; height: 44px; border-radius: 50%; border: none; cursor: pointer;
+    background: rgba(11,30,22,0.55); color: #fff; font-size: 26px; line-height: 1;
+    display: flex; align-items: center; justify-content: center; transition: background 0.15s;
+  }
+  .slide-arrow:hover { background: rgba(11,30,22,0.8); }
+  .slide-arrow.prev { left: 16px; }
+  .slide-arrow.next { right: 16px; }
+  .slide-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(180deg, transparent, rgba(11,30,22,0.85));
+    color: var(--color-cream); padding: 40px 24px 18px; font-size: 14px; font-weight: 500;
+  }
+  .slide-dots { position: absolute; bottom: 14px; right: 20px; display: flex; gap: 7px; }
+  .slide-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.45); cursor: pointer; border: none; padding: 0; }
+  .slide-dot.active { background: #fff; }
+  @media (max-width: 700px) { .slide { height: 300px; } }
 </style>
 </head>
 <body>
@@ -63,11 +86,16 @@
 </nav>
 
 <!-- ===================================================================
-     STORY HERO — EDIT: replace background with a real photo using
-     style="background-image:url('images/philippines-hero.jpg');"
+     STORY HERO — has a looping background video (crocodile.mp4),
+     same technique as the homepage hero. The kept gradient/color is a
+     fallback if the video fails to load. To swap, change the
+     src="media/crocodile.mp4" below.
      =================================================================== -->
 <div class="story-hero">
-  <div class="story-hero-scrim"></div>
+  <video autoplay muted loop playsinline style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+    <source src="media/crocodile.mp4" type="video/mp4">
+  </video>
+  <div class="story-hero-scrim" style="z-index:1;"></div>
   <div class="story-hero-content">
     <div class="hero-eyebrow">The Philippines</div>
     <!-- EDIT THIS: headline -->
@@ -91,30 +119,40 @@
   <p>Mabuwaya's approach combined research, habitat protection, and community-based conservation: training local "Bantay Sanktuwaryo" (sanctuary wardens) to monitor nesting sites and enforce protections, running a head-starting programme that raises hatchlings in captivity until they're around a year old (lifting survival odds from roughly 5% in the wild to around 80%), and building a network that now spans 17 community-conserved freshwater protected areas across San Mariano and Divilacan. More than 100 head-started crocodiles have been released back into the wild. The wild population in the region has grown from a single known adult in 1999 to around 125 individuals by 2024.</p>
 
   <!-- ===============================================================
-       VIDEO — paste a YouTube/Vimeo embed link here, or point src=""
-       at a self-hosted .mp4 file inside /images.
+       VIDEO — currently embedding a Vimeo video. To swap it, change
+       the video ID in the src below (the number after /video/). To use
+       a self-hosted file instead, replace the <iframe> with a <video>.
        =============================================================== -->
   <div class="video-frame">
-    <video controls poster="">
-      <source src="" type="video/mp4">
-      Your browser does not support embedded video. Replace this block with a YouTube/Vimeo iframe if preferred.
-    </video>
+    <iframe src="https://player.vimeo.com/video/532305111" title="Mabuwaya Foundation video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
   </div>
 
   <h2>In the field</h2>
-  <!-- EDIT THESE THREE PHOTO BLOCKS -->
-  <div class="photo-strip">
-    <div class="ph" style="">Photo 1</div>
-    <div class="ph" style="">Photo 2</div>
-    <div class="ph" style="">Photo 3</div>
+  <!-- ===============================================================
+       PHOTO SLIDESHOW — one large photo at a time with arrows and a
+       caption. EDIT the data-caption text for each slide below (and
+       the matching default in slide-caption). To swap a photo, change
+       the filename in url().
+       =============================================================== -->
+  <div class="slideshow" id="phili-slideshow">
+    <div class="slide active" style="background-image:url('media/phili1.jpg');" data-caption=""></div>
+    <div class="slide" style="background-image:url('media/phili2.jpg');" data-caption=""></div>
+    <div class="slide" style="background-image:url('media/phili3.jpg');" data-caption=""></div>
+    <button class="slide-arrow prev" onclick="moveSlide('phili-slideshow', -1)" aria-label="Previous photo">‹</button>
+    <button class="slide-arrow next" onclick="moveSlide('phili-slideshow', 1)" aria-label="Next photo">›</button>
+    <div class="slide-caption" id="phili-slideshow-caption"></div>
+    <div class="slide-dots" id="phili-slideshow-dots"></div>
   </div>
 
   <!-- ===============================================================
-       INTERVIEW QUOTE — EDIT the quote and citation.
+       INTERVIEW QUOTE — EDIT the quote, citation, or photo.
        =============================================================== -->
-  <div class="interview-quote">
-    <blockquote>"We've come far. But there are still those who think the crocodile is dangerous or useless. That's why we keep talking, visiting schools, and reminding everyone that this is about more than just one animal. It's about our river, our forest, and our future."</blockquote>
-    <cite>Rogelio Etchore, Bantay Sanktuwaryo (community sanctuary warden), Villa Miranda</cite>
+  <div class="interview-quote" style="display:flex; gap:20px; align-items:center;">
+    <img src="media/merlijn.jpg" alt="Merlijn van Weerd" style="width:72px; height:72px; border-radius:50%; object-fit:cover; flex-shrink:0;" />
+    <div>
+      <blockquote>"The Philippines are the testing ground of the world," says Merlijn. "When can dying species still be saved? When does an ecosystem collapse? We don't know. The Philippines offer a glimpse of what is to come. It's a warning to the rest of the world. At the same time, it's where we can see what you can still do."</blockquote>
+      <cite>Dr. Merlijn van Weerd, Mabuwaya Foundation / Leiden University</cite>
+    </div>
   </div>
 
   <h2>Why it matters</h2>
@@ -124,7 +162,58 @@
   <a href="living-proof.html" class="back-link" style="margin-top:24px;">← Back to Living Proof</a>
 </div>
 
+<!-- ===================================================================
+     WANT TO KNOW MORE — gold box linking out to the Mabuwaya Foundation
+     =================================================================== -->
+<div class="cta" style="margin-top:24px;">
+  <h2 style="margin-bottom:0;">Want to know more about the Mabuwaya Foundation?</h2>
+  <a href="https://www.mabuwaya.org/" target="_blank" rel="noopener" class="btn-dark">Visit mabuwaya.org →</a>
+</div>
+
 <footer>Stories of Hope — Science for Sustainable Societies, Institute of Environmental Sciences, Leiden University</footer>
 
+<script>
+// Simple slideshow: builds dots, handles arrows + caption updates.
+function initSlideshow(id) {
+  const root = document.getElementById(id);
+  if (!root) return;
+  const slides = root.querySelectorAll('.slide');
+  const dotsEl = document.getElementById(id + '-dots');
+
+  slides.forEach((s, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => showSlide(id, i);
+    dotsEl.appendChild(dot);
+  });
+
+  root._index = 0;
+  updateCaption(id);
+}
+
+function showSlide(id, n) {
+  const root = document.getElementById(id);
+  const slides = root.querySelectorAll('.slide');
+  const dots = root.querySelectorAll('.slide-dot');
+  root._index = (n + slides.length) % slides.length;
+  slides.forEach((s, i) => s.classList.toggle('active', i === root._index));
+  dots.forEach((d, i) => d.classList.toggle('active', i === root._index));
+  updateCaption(id);
+}
+
+function moveSlide(id, dir) {
+  const root = document.getElementById(id);
+  showSlide(id, root._index + dir);
+}
+
+function updateCaption(id) {
+  const root = document.getElementById(id);
+  const slides = root.querySelectorAll('.slide');
+  const captionEl = document.getElementById(id + '-caption');
+  captionEl.textContent = slides[root._index].dataset.caption || '';
+}
+
+window.addEventListener('DOMContentLoaded', () => initSlideshow('phili-slideshow'));
+</script>
 </body>
 </html>
