@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="styles.css">
 <style>
   /* ---- HOW IT WORKS: four numbered steps ---- */
@@ -25,10 +26,10 @@
     /* Each step flashes once on page load, staggered one after another */
     animation: step-highlight 1.6s ease-out both;
   }
-  .howto-step:nth-child(1) { animation-delay: 0.3s; }
-  .howto-step:nth-child(2) { animation-delay: 1.3s; }
-  .howto-step:nth-child(3) { animation-delay: 2.3s; }
-  .howto-step:nth-child(4) { animation-delay: 3.3s; }
+  .howto-step:nth-child(1) { animation-delay: 2.0s; }
+  .howto-step:nth-child(2) { animation-delay: 3.0s; }
+  .howto-step:nth-child(3) { animation-delay: 4.0s; }
+  .howto-step:nth-child(4) { animation-delay: 5.0s; }
 
   @keyframes step-highlight {
     0%   { background: rgba(255,255,255,0.72); border-color: var(--color-border); transform: scale(1); }
