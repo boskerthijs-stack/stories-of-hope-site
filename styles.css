@@ -121,16 +121,40 @@ nav {
 }
 
 /* ---- ATTENTION-GRABBING "ADD YOUR STORY" ---- */
-/* Strong pulsing glow on the main call-to-action button */
+/* The button flashes: it scales, glows, AND changes colour, so it is
+   impossible to miss. Colour is the key part, since it stays visible
+   even if a browser or OS suppresses movement. */
 @keyframes pulse-glow {
-  0%, 100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(26,36,18,0.7); }
-  50%      { transform: scale(1.09); box-shadow: 0 0 0 20px rgba(26,36,18,0); }
+  0%, 100% {
+    transform: scale(1);
+    background: #1A2412;
+    box-shadow: 0 0 0 0 rgba(232,114,74,0.85);
+  }
+  50% {
+    transform: scale(1.10);
+    background: #D85A30;
+    box-shadow: 0 0 0 22px rgba(232,114,74,0);
+  }
 }
 .btn-pulse {
-  animation: pulse-glow 1.4s ease-in-out infinite;
-  font-size: 16px; padding: 18px 38px; font-weight: 700;
+  animation: pulse-glow 1.2s ease-in-out infinite;
+  font-size: 17px;
+  padding: 20px 42px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
-.btn-pulse:hover { animation-play-state: paused; }
+.btn-pulse:hover { animation-play-state: paused; background: #D85A30; }
+
+/* Reduced motion: drop the movement, but keep a colour flash so the
+   button still stands out. */
+@keyframes pulse-color-only {
+  0%, 100% { background: #1A2412; }
+  50%      { background: #D85A30; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-pulse { animation: pulse-color-only 1.6s ease-in-out infinite; }
+  .nav-links a.nav-cta { animation: none; }
+}
 
 /* The "Add your story" item in the top navigation: gold pill that pulses */
 @keyframes nav-pulse {
@@ -146,9 +170,6 @@ nav {
 .nav-links a.nav-cta.active { border-bottom: none; }
 
 /* Respect users who prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .btn-pulse, .nav-links a.nav-cta { animation: none; }
-}
 .btn-ghost-light {
   border: 1.5px solid rgba(250,246,238,0.3); color: var(--color-cream); padding: 12px 24px; border-radius: 99px;
   font-size: 13.5px; font-weight: 600; text-decoration: none; white-space: nowrap; display: inline-block;
