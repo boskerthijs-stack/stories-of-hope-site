@@ -50,7 +50,7 @@ nav {
   text-decoration: none;
 }
 .logo-mark { width: 30px; height: 30px; flex-shrink: 0; }
-.nav-links { display: flex; gap: 40px; flex-wrap: wrap; }
+.nav-links { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
 .nav-links a {
   color: var(--color-text);
   text-decoration: none;
@@ -192,11 +192,11 @@ nav {
   50%      { box-shadow: 0 0 0 10px rgba(212,162,76,0); }
 }
 .nav-links a.nav-cta {
-  background: var(--color-gold); color: #1A2412; padding: 8px 18px; border-radius: 99px;
-  border-bottom: none; font-weight: 700;
+  background: var(--color-gold); color: #1A2412; padding: 9px 20px; border-radius: 99px;
+  border-bottom: 2px solid transparent; font-weight: 700; line-height: 1;
   animation: nav-pulse 1.8s ease-in-out infinite;
 }
-.nav-links a.nav-cta:hover { border-bottom: none; background: #E0B25C; animation-play-state: paused; }
+.nav-links a.nav-cta:hover { border-bottom-color: transparent; background: #E0B25C; animation-play-state: paused; }
 .nav-links a.nav-cta.active { border-bottom: none; }
 
 /* Respect users who prefer reduced motion */
