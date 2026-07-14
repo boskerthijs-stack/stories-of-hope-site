@@ -260,6 +260,37 @@ window.addEventListener("DOMContentLoaded", loadStats);
       <span class="pill" style="border-color:#5F9E8F; color:#93C2B6;" data-tip="The thinning of the ozone layer that shields life from harmful UV radiation. Recovering thanks to global action on CFCs.">Stratospheric ozone</span>
       <span class="pill" style="border-color:#C25FA0; color:#D894C0;" data-tip="Human-made substances new to nature, plastics, synthetic chemicals, heavy metals, that ecosystems never evolved to cope with.">Novel entities</span>
     </div>
+    <button onclick="document.getElementById('pb-modal').style.display='flex'" style="margin-top:32px; cursor:pointer; font-family:inherit; white-space:nowrap; background:var(--color-gold); color:#1A2412; border:none; padding:16px 32px; border-radius:99px; font-weight:700; font-size:14px;">Explain all nine boundaries →</button>
+  </div>
+</div>
+
+<!-- ===================================================================
+     PLANETARY BOUNDARIES POP-UP — opened by the button above. This is
+     also how the explanations stay reachable on phones, where there is
+     no hover and the tooltips therefore do not work.
+     =================================================================== -->
+<div id="pb-modal" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(11,30,22,0.6); align-items:center; justify-content:center; padding:24px;" onclick="if(event.target===this) this.style.display='none'">
+  <div style="background:var(--color-cream); border-radius:20px; max-width:640px; width:100%; max-height:85vh; overflow-y:auto; padding:40px;">
+    <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; margin-bottom:20px;">
+      <div>
+        <div class="section-eyebrow" style="margin-bottom:8px;">The nine planetary boundaries</div>
+        <h2 style="font-family:'Fraunces',serif; font-weight:500; font-size:24px; color:var(--color-forest); margin:0;">A safe operating space for humanity</h2>
+      </div>
+      <button onclick="document.getElementById('pb-modal').style.display='none'" aria-label="Close" style="flex-shrink:0; width:34px; height:34px; border-radius:50%; border:none; background:#E4DCC8; color:var(--color-forest); font-size:18px; font-weight:bold; cursor:pointer;">×</button>
+    </div>
+    <p style="font-size:13.5px; line-height:1.6; color:#4A4A42; margin-bottom:24px;">Defined by the Stockholm Resilience Centre, these nine processes regulate the stability of the planet. Staying within them keeps Earth in the favourable state that allowed societies to develop.</p>
+
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <div style="border-left:3px solid #E8724A; padding-left:14px;"><h4 style="font-size:14px; color:var(--color-forest); margin-bottom:3px;">Climate change</h4><p style="font-size:13px; line-height:1.55; color:#4A4A42;">The build-up of greenhouse gases that warms the planet and destabilises the climate system. Driven mainly by burning fossil fuels.</p></div>
+      <div style="border-left:3px solid #4A9E6B; padding-left:14px;"><h4 style="font-size:14px; color:var(--color-forest); margin-bottom:3px;">Biodiversity (biosphere integrity)</h4><p style="font-size:13px; line-height:1.55; color:#4A4A42;">The loss of species and the erosion of ecosystems. Healthy, diverse life keeps natural systems resilient and functioning.</p></div>
+      <div style="border-left:3px solid #C8A240; padding-left:14px;"><h4 style="font-size:14px; color:var(--color-forest); margin-bottom:3px;">Land system change</h4><p style="font-size:13px; line-height:1.55; color:#4A4A42;">The conversion of forests, wetlands, and grasslands into farmland and cities, which weakens the land's ability to support life and store carbon.</p></div>
+      <div style="border-left:3px solid #4A7EC8; padding-left:14px;"><h4 style="font-size:14px; color:var(--color-forest); margin-bottom:3px;">Freshwater use</h4><p style="font-size:13px; line-height:1.55; color:#4A4A42;">The disruption of the water cycle through over-extraction of rivers, lakes, and groundwater, and changes to soil moisture.</p></div>
+      <div style="border-left:3px solid #8B6BB5; padding-left:14px;"><h4 style="font-size:14px; color:var(--color-forest); margin-bottom:3px;">Biogeochemical flows</h4><p style="font-size:13px; line-height:1.55; color:#4A4A42;">The overloading of nitrogen and phosphorus, mostly from fertilisers, which pollutes water and triggers algal blooms and dead zones.</p></div>
+      <div style="border-left:3px solid #3AABBF; padding-left:14px;"><h4 style="font-size:14px; color:var(--color-forest); margin-bottom:3px;">Ocean acidification</h4><p style="font-size:13px; line-height:1.55; color:#4A4A42;">As oceans absorb excess CO2 they become more acidic, making it harder for corals and shellfish to build their skeletons and shells.</p></div>
+      <div style="border-left:3px solid #7A8FA0; padding-left:14px;"><h4 style="font-size:14px; color:var(--color-forest); margin-bottom:3px;">Atmospheric aerosols</h4><p style="font-size:13px; line-height:1.55; color:#4A4A42;">Tiny particles from pollution that harm health and alter rainfall patterns and regional climates.</p></div>
+      <div style="border-left:3px solid #5F9E8F; padding-left:14px;"><h4 style="font-size:14px; color:var(--color-forest); margin-bottom:3px;">Stratospheric ozone depletion</h4><p style="font-size:13px; line-height:1.55; color:#4A4A42;">The thinning of the ozone layer that shields life from harmful ultraviolet radiation. Recovering thanks to global action on CFCs.</p></div>
+      <div style="border-left:3px solid #C25FA0; padding-left:14px;"><h4 style="font-size:14px; color:var(--color-forest); margin-bottom:3px;">Novel entities</h4><p style="font-size:13px; line-height:1.55; color:#4A4A42;">Human-made substances new to nature, plastics, synthetic chemicals, heavy metals, that ecosystems never evolved to cope with.</p></div>
+    </div>
   </div>
 </div>
 
