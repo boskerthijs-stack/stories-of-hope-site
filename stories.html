@@ -94,29 +94,44 @@
 </div>
 
 <!-- ===================================================================
-     PLANETARY BOUNDARIES HELP — styled like the homepage boundaries
-     section (dark green with faded concentric-rings background). The
-     button opens the pop-up (#pb-modal) explaining all nine.
+     PLANETARY BOUNDARIES — same section as the homepage: dark green
+     with faded concentric rings, the nine colored pills (each with a
+     hover tooltip), plus a button that opens the pop-up (#pb-modal)
+     explaining all nine at once.
+     These names/colors must match map.html's BOUNDARIES list.
      =================================================================== -->
-<div class="boundaries-section" style="position:relative; overflow:hidden; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+<div class="boundaries-section" style="position:relative; overflow:hidden;">
   <div style="position:absolute; inset:0; opacity:0.08; pointer-events:none;">
-    <svg width="100%" height="100%" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="600" cy="150" r="140" fill="none" stroke="#FAF6EE" stroke-width="1.5"/>
-      <circle cx="600" cy="150" r="100" fill="none" stroke="#FAF6EE" stroke-width="1.5"/>
-      <circle cx="600" cy="150" r="60" fill="none" stroke="#FAF6EE" stroke-width="1.5"/>
+    <svg width="100%" height="100%" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="600" cy="250" r="220" fill="none" stroke="#FAF6EE" stroke-width="1.5"/>
+      <circle cx="600" cy="250" r="170" fill="none" stroke="#FAF6EE" stroke-width="1.5"/>
+      <circle cx="600" cy="250" r="120" fill="none" stroke="#FAF6EE" stroke-width="1.5"/>
+      <circle cx="600" cy="250" r="70" fill="none" stroke="#FAF6EE" stroke-width="1.5"/>
       <g fill="#FAF6EE">
-        <circle cx="600" cy="10" r="6"/><circle cx="740" cy="60" r="6"/><circle cx="740" cy="240" r="6"/>
-        <circle cx="600" cy="290" r="6"/><circle cx="460" cy="240" r="6"/><circle cx="460" cy="60" r="6"/>
-        <circle cx="790" cy="150" r="6"/><circle cx="410" cy="150" r="6"/><circle cx="600" cy="150" r="8"/>
+        <circle cx="600" cy="30" r="7"/><circle cx="820" cy="90" r="7"/><circle cx="970" cy="250" r="7"/>
+        <circle cx="820" cy="410" r="7"/><circle cx="600" cy="470" r="7"/><circle cx="380" cy="410" r="7"/>
+        <circle cx="230" cy="250" r="7"/><circle cx="380" cy="90" r="7"/><circle cx="600" cy="250" r="10"/>
       </g>
     </svg>
   </div>
-  <div style="position:relative; z-index:1; max-width:560px;">
+  <div style="position:relative; z-index:1;">
     <div class="section-eyebrow">Grounded in planetary boundaries</div>
-    <h2 style="margin-bottom:8px;">More info on the nine planetary boundaries?</h2>
-    <p class="lead" style="margin-bottom:0;">They define a safe operating space for humanity. Read a short explanation of each one.</p>
+    <h2>Every story is tagged to what it actually addressed.</h2>
+    <!-- EDIT THIS PARAGRAPH -->
+    <p class="lead">Planetary boundaries mark the limits within which humanity can keep operating safely, covering everything from the climate system to the flow of nitrogen and phosphorus through soil and water. Cross too many of them, and the systems that hold up a livable planet start to break down in ways that are hard to reverse. Hover over any boundary below for a short explanation.</p>
+    <div class="boundary-pills">
+      <span class="pill" style="border-color:#E8724A; color:#F0A088;" data-tip="The build-up of greenhouse gases that warms the planet and destabilises the climate system. Driven mainly by burning fossil fuels.">Climate change</span>
+      <span class="pill" style="border-color:#4A9E6B; color:#7FC79A;" data-tip="The loss of species and erosion of ecosystems. Diverse life keeps natural systems resilient and functioning.">Biodiversity</span>
+      <span class="pill" style="border-color:#C8A240; color:#DCC179;" data-tip="The conversion of forests, wetlands, and grasslands into farmland and cities, weakening the land's ability to support life and store carbon.">Land system change</span>
+      <span class="pill" style="border-color:#4A7EC8; color:#86A9DD;" data-tip="The disruption of the water cycle through over-extraction of rivers, lakes, and groundwater, and changes to soil moisture.">Freshwater use</span>
+      <span class="pill" style="border-color:#8B6BB5; color:#B49BD2;" data-tip="The overloading of nitrogen and phosphorus, mostly from fertilisers, which pollutes water and triggers algal blooms and dead zones.">Biogeochemical flows</span>
+      <span class="pill" style="border-color:#3AABBF; color:#7FCEDB;" data-tip="As oceans absorb excess CO2 they become more acidic, making it harder for corals and shellfish to build shells and skeletons.">Ocean acidification</span>
+      <span class="pill" style="border-color:#7A8FA0; color:#A7B6C2;" data-tip="Tiny particles from pollution that harm health and alter rainfall patterns and regional climates.">Atmospheric aerosols</span>
+      <span class="pill" style="border-color:#5F9E8F; color:#93C2B6;" data-tip="The thinning of the ozone layer that shields life from harmful UV radiation. Recovering thanks to global action on CFCs.">Stratospheric ozone</span>
+      <span class="pill" style="border-color:#C25FA0; color:#D894C0;" data-tip="Human-made substances new to nature, plastics, synthetic chemicals, heavy metals, that ecosystems never evolved to cope with.">Novel entities</span>
+    </div>
+    <button onclick="document.getElementById('pb-modal').style.display='flex'" style="margin-top:32px; cursor:pointer; font-family:inherit; white-space:nowrap; background:var(--color-gold); color:#1A2412; border:none; padding:16px 32px; border-radius:99px; font-weight:700; font-size:14px;">Explain all nine boundaries →</button>
   </div>
-  <button onclick="document.getElementById('pb-modal').style.display='flex'" style="position:relative; z-index:1; cursor:pointer; font-family:inherit; white-space:nowrap; background:var(--color-gold); color:#1A2412; border:none; padding:16px 32px; border-radius:99px; font-weight:700; font-size:14px;">Explain the boundaries →</button>
 </div>
 
 <!-- ===================================================================
