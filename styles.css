@@ -378,6 +378,8 @@ footer { padding: 40px 56px; text-align: center; color: #8A8978; font-size: 13px
   .stats { grid-template-columns: repeat(2, 1fr); }
   .principle-list { grid-template-columns: 1fr; }
   .bio-grid { grid-template-columns: 1fr !important; }
+  /* Inside each bio card, put the photo above the text instead of beside it */
+  .bio-card { flex-direction: column; align-items: flex-start !important; }
   .hero h1 { font-size: 38px; }
   nav { padding: 18px 24px; }
   .section, .page-header, .recent-section { padding-left: 24px; padding-right: 24px; }
