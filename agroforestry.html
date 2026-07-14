@@ -42,6 +42,20 @@
   .interview-quote cite { display: block; margin-top: 14px; font-size: 13px; color: var(--color-text-muted); font-style: normal; }
 
   .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--color-moss); text-decoration: none; margin-bottom: 24px; }
+
+  /* ---- MOBILE ---- */
+  @media (max-width: 900px) {
+    .story-hero { margin: 0 16px; min-height: 300px; }
+    .story-hero-content { padding: 28px 24px; }
+    .story-hero-content h1 { font-size: 30px !important; }
+    .story-body { padding: 40px 24px; }
+    .story-body h2 { font-size: 22px; }
+    .photo-strip { grid-template-columns: 1fr; }
+    .interview-quote { padding: 24px 22px; flex-direction: column; align-items: flex-start !important; }
+    .interview-quote blockquote { font-size: 17px; }
+    .cta { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
+    .cta h2 { font-size: 22px; }
+  }
 </style>
 </head>
 <body>
