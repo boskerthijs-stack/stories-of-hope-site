@@ -8,6 +8,52 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* ---- HOW IT WORKS: four numbered steps ---- */
+  .howto-title {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--color-forest); margin-bottom: 18px;
+  }
+  .howto-steps {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  }
+  .howto-step {
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(255,255,255,0.72);
+    border: 1px solid var(--color-border);
+    border-radius: 12px; padding: 16px 18px;
+    /* Each step flashes once on page load, staggered one after another */
+    animation: step-highlight 0.9s ease-out both;
+  }
+  .howto-step:nth-child(1) { animation-delay: 0.2s; }
+  .howto-step:nth-child(2) { animation-delay: 0.7s; }
+  .howto-step:nth-child(3) { animation-delay: 1.2s; }
+  .howto-step:nth-child(4) { animation-delay: 1.7s; }
+
+  @keyframes step-highlight {
+    0%   { background: rgba(255,255,255,0.72); border-color: var(--color-border); transform: scale(1); }
+    35%  { background: var(--color-gold);      border-color: var(--color-gold);   transform: scale(1.05); }
+    100% { background: rgba(255,255,255,0.72); border-color: var(--color-border); transform: scale(1); }
+  }
+
+  .howto-num {
+    flex-shrink: 0;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--color-forest); color: var(--color-cream);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700;
+  }
+  .howto-label {
+    font-size: 13.5px; font-weight: 600; line-height: 1.35; color: var(--color-forest);
+  }
+
+  @media (max-width: 900px) {
+    .howto-steps { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .howto-step { animation: none; }
+  }
+</style>
 </head>
 <body>
 
@@ -48,33 +94,31 @@
 </div>
 
 <!-- ===================================================================
-     CONTRIBUTE CHECKLIST — what used to be on the separate
-     "Add Your Story" page now sits here, right above the one shared
-     map. Add a fifth tip by copying one .check-item block.
-     The faded Whole_world.jpg sits behind the whole strip.
+     HOW IT WORKS — four numbered steps. They light up one by one when
+     the page loads (once), then settle into their normal look.
+     EDIT the step titles below. The faded Whole_world.jpg sits behind.
      =================================================================== -->
 <div style="position:relative; margin:48px 56px; border-radius:18px; overflow:hidden;">
   <div style="position:absolute; inset:0; background-image:url('media/Whole_world.jpg'); background-size:cover; background-position:center; opacity:0.35; z-index:0;"></div>
-  <div class="checklist" style="position:relative; z-index:1; margin:0; background:transparent;">
-    <div class="check-item" style="background:rgba(255,255,255,0.62);">
-      <div class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0114 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-      <h4>A real, specific place</h4>
-      <p>Zoom in before placing your pin so it lands precisely.</p>
-    </div>
-    <div class="check-item" style="background:rgba(255,255,255,0.62);">
-      <div class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16M4 15h10M4 11h16M4 7h10"/></svg></div>
-      <h4>100 words, max</h4>
-      <p>Short and specific beats long and vague. State the problem and the fix.</p>
-    </div>
-    <div class="check-item" style="background:rgba(255,255,255,0.62);">
-      <div class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg></div>
-      <h4>Tag honestly</h4>
-      <p>Tick every planetary boundary genuinely addressed, multiple is fine.</p>
-    </div>
-    <div class="check-item" style="background:rgba(255,255,255,0.62);">
-      <div class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 15l-4-4-7 7"/></svg></div>
-      <h4>A photo, if you have one</h4>
-      <p>One or two images make the story memorable. Optional, not required.</p>
+  <div style="position:relative; z-index:1; padding:28px 28px 32px;">
+    <p class="howto-title">How it works</p>
+    <div class="howto-steps">
+      <div class="howto-step">
+        <span class="howto-num">1</span>
+        <span class="howto-label">Select your location</span>
+      </div>
+      <div class="howto-step">
+        <span class="howto-num">2</span>
+        <span class="howto-label">Explain the story of hope</span>
+      </div>
+      <div class="howto-step">
+        <span class="howto-num">3</span>
+        <span class="howto-label">Tag planetary boundary</span>
+      </div>
+      <div class="howto-step">
+        <span class="howto-num">4</span>
+        <span class="howto-label">Add photos</span>
+      </div>
     </div>
   </div>
 </div>
