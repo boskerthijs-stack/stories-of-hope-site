@@ -23,12 +23,12 @@
     border: 1px solid var(--color-border);
     border-radius: 12px; padding: 16px 18px;
     /* Each step flashes once on page load, staggered one after another */
-    animation: step-highlight 0.9s ease-out both;
+    animation: step-highlight 1.6s ease-out both;
   }
-  .howto-step:nth-child(1) { animation-delay: 0.2s; }
-  .howto-step:nth-child(2) { animation-delay: 0.7s; }
-  .howto-step:nth-child(3) { animation-delay: 1.2s; }
-  .howto-step:nth-child(4) { animation-delay: 1.7s; }
+  .howto-step:nth-child(1) { animation-delay: 0.3s; }
+  .howto-step:nth-child(2) { animation-delay: 1.3s; }
+  .howto-step:nth-child(3) { animation-delay: 2.3s; }
+  .howto-step:nth-child(4) { animation-delay: 3.3s; }
 
   @keyframes step-highlight {
     0%   { background: rgba(255,255,255,0.72); border-color: var(--color-border); transform: scale(1); }
@@ -87,7 +87,7 @@
   <div class="hero-content">
     <div class="hero-eyebrow">The map</div>
     <!-- EDIT THIS: stories page headline -->
-    <h1>Every pin is a place where <em>something was fixed</em>.</h1>
+    <h1>Every pin is a place where <em>something was fixed.</em></h1>
     <!-- EDIT THIS: stories page subtitle -->
     <p>Browse the stories students have pinned from around the world, or add your own to the map below.</p>
   </div>
@@ -129,7 +129,7 @@
      If you ever move the map to a different URL, change the src=""
      value below.
      =================================================================== -->
-<div class="map-frame">
+<div class="map-frame" style="margin-bottom:72px;">
   <div class="map-frame-bar">
     <div class="dot"></div><div class="dot"></div><div class="dot"></div>
     <span class="url">boskerthijs-stack.github.io/solutions-hope-map</span>
