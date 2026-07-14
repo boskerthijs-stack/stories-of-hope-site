@@ -272,7 +272,7 @@ function storyCardHtml(s) {
   }).join("");
   const loc = s.country ? `<div class="story-loc">${escapeHtml(s.country)}</div>` : "";
   return `
-    <div class="story-photo" style="background-image:url('${photo}'); background-size:cover; background-position:center;"></div>
+    <div class="story-photo" style="background-image:url('${photo}');"></div>
     <div class="story-body">
       <div class="story-tags">${tags}</div>
       <h3>${escapeHtml(s.title) || "Untitled"}</h3>
