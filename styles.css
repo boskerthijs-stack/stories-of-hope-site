@@ -121,12 +121,15 @@ nav {
 }
 
 /* ---- ATTENTION-GRABBING "ADD YOUR STORY" ---- */
-/* Pulsing glow on the main call-to-action button */
+/* Strong pulsing glow on the main call-to-action button */
 @keyframes pulse-glow {
-  0%, 100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(26,36,18,0.5); }
-  50%      { transform: scale(1.05); box-shadow: 0 0 0 14px rgba(26,36,18,0); }
+  0%, 100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(26,36,18,0.7); }
+  50%      { transform: scale(1.09); box-shadow: 0 0 0 20px rgba(26,36,18,0); }
 }
-.btn-pulse { animation: pulse-glow 1.8s ease-in-out infinite; }
+.btn-pulse {
+  animation: pulse-glow 1.4s ease-in-out infinite;
+  font-size: 16px; padding: 18px 38px; font-weight: 700;
+}
 .btn-pulse:hover { animation-play-state: paused; }
 
 /* The "Add your story" item in the top navigation: gold pill that pulses */
