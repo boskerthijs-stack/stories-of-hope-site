@@ -66,6 +66,20 @@
   .slide-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.45); cursor: pointer; border: none; padding: 0; }
   .slide-dot.active { background: #fff; }
   @media (max-width: 700px) { .slide { height: 300px; } }
+
+  /* ---- MOBILE ---- */
+  @media (max-width: 900px) {
+    .story-hero { margin: 0 16px; min-height: 300px; }
+    .story-hero-content { padding: 28px 24px; }
+    .story-hero-content h1 { font-size: 30px !important; }
+    .story-body { padding: 40px 24px; }
+    .story-body h2 { font-size: 22px; }
+    .photo-strip { grid-template-columns: 1fr; }
+    .interview-quote { padding: 24px 22px; flex-direction: column; align-items: flex-start !important; }
+    .interview-quote blockquote { font-size: 17px; }
+    .cta { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
+    .cta h2 { font-size: 22px; }
+  }
 </style>
 </head>
 <body>
