@@ -323,7 +323,17 @@ footer { padding: 40px 56px; text-align: center; color: #8A8978; font-size: 13px
 
 .story-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .story-card { background: #fff; border: 1px solid var(--color-border); border-radius: 18px; overflow: hidden; }
-.story-photo { height: 150px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.85); text-align: center; padding: 12px; }
+/* Photo shown in full (contain), so portrait shots are not cropped.
+   The soft background fills any empty space beside a tall photo. */
+.story-photo {
+  height: 220px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #EAF1E6;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: rgba(255,255,255,0.85); text-align: center; padding: 12px;
+}
 .story-photo.p1 { background: linear-gradient(135deg, var(--color-moss), #2E5A3F); }
 .story-photo.p2 { background: linear-gradient(135deg, #D85A30, #993C1D); }
 .story-photo.p3 { background: linear-gradient(135deg, #378ADD, #185FA5); }
