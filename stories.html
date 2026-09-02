@@ -54,6 +54,12 @@
   @media (prefers-reduced-motion: reduce) {
     .howto-step { animation: none; }
   }
+
+  /* Logo placeholder shown when a story has no photo */
+  .story-photo-placeholder {
+    background: linear-gradient(135deg, #EAF1E6, #DCE8DA);
+    display: flex; align-items: center; justify-content: center;
+  }
 </style>
 </head>
 <body>
@@ -272,8 +278,20 @@ function storyCardHtml(s) {
     return `<span class="story-tag" style="background:${b.color}22; color:${b.color}; border:1px solid ${b.color}44;">${b.label}</span>`;
   }).join("");
   const loc = s.country ? `<div class="story-loc">${escapeHtml(s.country)}</div>` : "";
+
+  // If the story has a photo, show it. Otherwise fall back to the logo
+  // leaf on a soft background as a placeholder.
+  const photoBlock = photo
+    ? `<div class="story-photo" style="background-image:url('${photo}');"></div>`
+    : `<div class="story-photo story-photo-placeholder">
+         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+           <path d="M12 2C9 7 5 10 5 15a7 7 0 0014 0c0-5-4-8-7-13z" fill="#4A7856"/>
+           <path d="M12 22V12" stroke="#D4A24C" stroke-width="1.5" stroke-linecap="round"/>
+         </svg>
+       </div>`;
+
   return `
-    <div class="story-photo" style="background-image:url('${photo}');"></div>
+    ${photoBlock}
     <div class="story-body">
       <div class="story-tags">${tags}</div>
       <h3>${escapeHtml(s.title) || "Untitled"}</h3>
@@ -282,58 +300,33 @@ function storyCardHtml(s) {
     </div>`;
 }
 
-const SHOWN = 6;          // how many cards visible at once
-const ROTATE_MS = 4000;   // swap one card every 4 seconds
-
 async function loadRecent() {
   const grid  = document.getElementById("recent-grid");
   const empty = document.getElementById("recent-empty");
   try {
     const snap = await getDocs(collection(db, "stories"));
-    let pool = snap.docs.map(d => d.data()).filter(s => s.photo1 || s.photo2);
+    // Show every story, with or without a photo.
+    let stories = snap.docs.map(d => d.data());
 
-    if (pool.length === 0) {
-      empty.textContent = "No stories with photos yet. Be the first to add one on the map above.";
+    if (stories.length === 0) {
+      empty.textContent = "No stories yet. Be the first to add one on the map above.";
       return;
     }
 
-    // Shuffle so the first six are a random selection each visit.
-    for (let i = pool.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [pool[i], pool[j]] = [pool[j], pool[i]];
-    }
-
-    // Track which stories are currently on screen.
-    let visible = pool.slice(0, Math.min(SHOWN, pool.length));
-    let nextIndex = visible.length;   // pointer into the pool for the next story to bring in
-
-    // Initial render of the cards.
-    grid.innerHTML = "";
-    const cards = visible.map(s => {
-      const card = document.createElement("div");
-      card.className = "story-card";
-      card.style.transition = "opacity 0.6s ease";
-      card.innerHTML = storyCardHtml(s);
-      grid.appendChild(card);
-      return card;
+    // Newest first, when a created timestamp is available.
+    stories.sort((a, b) => {
+      const ta = a.created && a.created.seconds ? a.created.seconds : 0;
+      const tb = b.created && b.created.seconds ? b.created.seconds : 0;
+      return tb - ta;
     });
 
-    // If there aren't more than SHOWN stories, nothing to rotate.
-    if (pool.length <= SHOWN) return;
-
-    // Every few seconds, fade one card out and swap in the next story.
-    let slot = 0;
-    setInterval(() => {
-      const card = cards[slot % cards.length];
-      const story = pool[nextIndex % pool.length];
-      nextIndex++;
-      card.style.opacity = "0";
-      setTimeout(() => {
-        card.innerHTML = storyCardHtml(story);
-        card.style.opacity = "1";
-      }, 600);
-      slot++;
-    }, ROTATE_MS);
+    // Show them all, as a growing grid.
+    grid.innerHTML = stories.map(s => {
+      const card = document.createElement("div");
+      card.className = "story-card";
+      card.innerHTML = storyCardHtml(s);
+      return card.outerHTML;
+    }).join("");
 
   } catch (e) {
     empty.textContent = "Could not load stories right now. Please try again later.";
