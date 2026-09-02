@@ -215,10 +215,20 @@
 </div>
 
 <!-- ===================================================================
+     LIVE STATS — same three numbers as the homepage, pulled from the
+     shared Firebase database. Sits between the map and Recently added.
+     =================================================================== -->
+<div class="stats" style="grid-template-columns: repeat(3, 1fr); margin-top:0; margin-bottom:72px;">
+  <div class="stat"><div class="num" id="stat-stories" style="color:#D85A30;">–</div><div class="label">Stories pinned so far</div></div>
+  <div class="stat"><div class="num" id="stat-boundaries" style="color:#185FA5;">–</div><div class="label">Planetary boundaries addressed</div></div>
+  <div class="stat"><div class="num" id="stat-countries" style="color:#3B6D11;">–</div><div class="label">Countries represented</div></div>
+</div>
+
+<!-- ===================================================================
      RECENTLY ADDED — filled live from the map's Firebase database.
-     Shows every story that has a photo, as a growing grid. The photo,
-     description text, and tags all come from what students submitted.
-     The cards are built by the script at the bottom of this file.
+     Shows every story, as a growing grid. The photo (or logo
+     placeholder), description text, and tags all come from what
+     students submitted. Cards are built by the script below.
      =================================================================== -->
 <div class="recent-section">
   <h2>Recently added</h2>
@@ -308,6 +318,21 @@ async function loadRecent() {
     // Show every story, with or without a photo.
     let stories = snap.docs.map(d => d.data());
 
+    // ---- Fill the three stats from the same data ----
+    const boundariesUsed = new Set();
+    const countriesUsed = new Set();
+    stories.forEach(s => {
+      (s.boundaries || []).forEach(b => boundariesUsed.add(b));
+      if (s.country) countriesUsed.add(s.country);
+    });
+    const setStat = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = val;
+    };
+    setStat("stat-stories", stories.length);
+    setStat("stat-boundaries", boundariesUsed.size);
+    setStat("stat-countries", countriesUsed.size);
+
     if (stories.length === 0) {
       empty.textContent = "No stories yet. Be the first to add one on the map above.";
       return;
@@ -330,6 +355,9 @@ async function loadRecent() {
 
   } catch (e) {
     empty.textContent = "Could not load stories right now. Please try again later.";
+    ["stat-stories","stat-boundaries","stat-countries"].forEach(id => {
+      const el = document.getElementById(id); if (el) el.textContent = "–";
+    });
   }
 }
 
